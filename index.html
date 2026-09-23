@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#c20000" />
+    <meta
+      name="description"
+      content="Công cụ tra cứu ưu đãi thường, Flash Sale 23–29/9/2026 và phương án trả góp."
+    />
+    <title>Nạp nhanh kẻo lỡ — Ưu đãi đang chờ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow"><span aria-hidden="true">ϟ</span> Công cụ tư vấn khuyến mãi · Flash Sale</p>
+        <h1>Nạp nhanh kẻo lỡ<br class="mobile-break" /> — Ưu đãi đang chờ</h1>
+        <p class="hero-copy">
+          Khuyến mãi từ <strong>23/09/2026 – 29/09/2026</strong>. Tổng ưu đãi bằng ưu đãi thường cộng
+          Flash Sale và được tính trên giá trị chưa VAT.
+        </p>
+      </header>
+
+      <main>
+        <section class="setup-grid" aria-label="Thiết lập công cụ">
+          <article class="setup-card">
+            <p class="field-label">Đối tượng khách hàng</p>
+            <div class="segmented" id="customerSwitcher" role="group" aria-label="Đối tượng khách hàng">
+              <button class="segment is-active" type="button" data-customer="personal" aria-pressed="true">
+                <span aria-hidden="true">♙</span> Cá nhân
+              </button>
+              <button class="segment" type="button" data-customer="business" aria-pressed="false">
+                <span aria-hidden="true">▦</span> Doanh nghiệp
+              </button>
+            </div>
+          </article>
+
+          <article class="setup-card">
+            <label class="field-label" for="bankSelect">Ngân hàng trả góp</label>
+            <div class="select-wrap">
+              <select id="bankSelect" aria-label="Ngân hàng trả góp"></select>
+            </div>
+          </article>
+
+          <article class="setup-card">
+            <p class="field-label">Chương trình áp dụng</p>
+            <label class="check-control">
+              <input id="flashToggle" type="checkbox" checked />
+              <span class="check-box" aria-hidden="true"></span>
+              <span>Flash Sale 23–29/9</span>
+            </label>
+            <p class="field-hint">Bỏ chọn để chỉ tính ưu đãi thường.</p>
+          </article>
+        </section>
+
+        <section class="contact-card" aria-label="Thông tin liên hệ trên ảnh tải xuống">
+          <div class="contact-label">
+            <span>Liên hệ ngay</span>
+            <small>Thông tin này sẽ xuất hiện trên ảnh PNG</small>
+          </div>
+          <label>
+            <span class="sr-only">Số điện thoại</span>
+            <input id="advisorPhone" type="tel" inputmode="tel" placeholder="Số điện thoại (VD: 0966 835 825)" />
+          </label>
+          <label>
+            <span class="sr-only">Tên tư vấn viên</span>
+            <input id="advisorName" type="text" placeholder="Tên tư vấn viên" />
+          </label>
+        </section>
+
+        <aside class="campaign-alert" aria-label="Thông báo chương trình">
+          <span class="alert-icon" aria-hidden="true">ϟ</span>
+          <p>
+            <strong>FLASH SALE 23–29/9/2026</strong>
+            đang áp dụng. Tỷ lệ đúng theo từng mốc tiền nạp và từng nhóm khách hàng.
+          </p>
+        </aside>
+
+        <nav class="section-nav" aria-label="Đi đến phân mục">
+          <span>Hiển thị mục:</span>
+          <button type="button" data-scroll="calculator" class="nav-pill is-active">1 · Tra cứu khuyến mãi</button>
+          <button type="button" data-scroll="offerBoard" class="nav-pill">2 · Bảng phương án</button>
+          <button type="button" data-scroll="installment" class="nav-pill">3 · Trả góp ngân hàng</button>
+        </nav>
+
+        <section class="content-section" id="calculator">
+          <header class="section-heading">
+            <span class="section-number">01</span>
+            <div>
+              <p>Tính tự động theo chính sách</p>
+              <h2>Tra cứu khuyến mãi theo số tiền nạp</h2>
+            </div>
+            <span class="customer-badge" data-customer-label>Khách hàng cá nhân</span>
+          </header>
+
+          <div class="table-scroll">
+            <table class="data-table lookup-table">
+              <thead>
+                <tr>
+                  <th>Số tiền nạp <small>(gồm VAT)</small></th>
+                  <th>Ưu đãi thường <small>HSD 180 ngày</small></th>
+                  <th>Flash Sale 23–29/9 <small>HSD 90 ngày</small></th>
+                  <th>Tổng ưu đãi</th>
+                  <th>Tiền khuyến mãi</th>
+                </tr>
+              </thead>
+              <tbody id="lookupRows"></tbody>
+            </table>
+          </div>
+          <footer class="table-footer">
+            <button class="outline-button" id="addLookupRow" type="button"><span>＋</span> Thêm số tiền</button>
+            <span class="row-counter" id="lookupCounter">3/10 dòng</span>
+            <p class="formula-inline">Tiền KM = (Số tiền nạp ÷ 1,08) × Tổng tỷ lệ ưu đãi.</p>
+          </footer>
+
+          <div class="policy-area">
+            <div class="subheading-row">
+              <div>
+                <p class="mini-eyebrow">Chính sách đã đối chiếu</p>
+                <h3>Bảng tỷ lệ khuyến mãi</h3>
+              </div>
+              <span>Đơn vị: %</span>
+            </div>
+            <div class="policy-grid" id="policyGrid"></div>
+          </div>
+        </section>
+
+        <section class="content-section" id="offerBoard">
+          <header class="section-heading">
+            <span class="section-number">02</span>
+            <div>
+              <p>Mỗi dòng là một lựa chọn độc lập</p>
+              <h2>Bảng phương án ưu đãi</h2>
+            </div>
+            <span class="customer-badge" data-customer-label>Khách hàng cá nhân</span>
+          </header>
+
+          <div class="section-actions">
+            <div class="inline-actions">
+              <button class="text-button" id="addOfferRow" type="button"><span>＋</span> Thêm số tiền</button>
+              <span class="row-counter" id="offerCounter">3/10 dòng</span>
+            </div>
+            <button class="primary-button" id="downloadPng" type="button">
+              <span aria-hidden="true">⇩</span> Tải bảng (.PNG)
+            </button>
+          </div>
+
+          <div class="promo-board" id="promoBoard">
+            <div class="board-orb board-orb-one"></div>
+            <div class="board-orb board-orb-two"></div>
+            <div class="board-topline">
+              <span class="brand-mark" aria-hidden="true">⌂</span>
+              <span>Ưu đãi tháng 9</span>
+            </div>
+            <div class="board-hero">
+              <div>
+                <p>Flash Sale · 23–29/9/2026</p>
+                <h3>Nạp nhanh kẻo lỡ<br />Ưu đãi đang chờ</h3>
+              </div>
+              <div class="max-offer">
+                <span>Ưu đãi đến</span>
+                <strong id="maxOfferValue">35%</strong>
+              </div>
+            </div>
+            <div class="board-meta">
+              <span data-customer-label>Khách hàng cá nhân</span>
+              <span id="boardContact"></span>
+            </div>
+            <div class="board-table-wrap">
+              <table class="board-table">
+                <thead>
+                  <tr>
+                    <th>Giá trị HĐ <small>(gồm VAT)</small></th>
+                    <th>Ưu đãi thường <small>HSD 180 ngày</small></th>
+                    <th>Flash Sale <small>23–29/9 · HSD 90 ngày</small></th>
+                    <th>Tổng tiền KM</th>
+                  </tr>
+                </thead>
+                <tbody id="offerRows"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section" id="installment">
+          <header class="section-heading">
+            <span class="section-number">03</span>
+            <div>
+              <p>So sánh theo 4 kỳ hạn</p>
+              <h2>Trả góp ngân hàng — lợi ích ròng & góp/tháng</h2>
+            </div>
+          </header>
+
+          <div class="installment-inputs">
+            <label>
+              <span>Số tiền trả góp</span>
+              <div class="money-input compact">
+                <input id="installmentAmount" inputmode="numeric" value="20.000.000" aria-label="Số tiền trả góp" />
+                <span>đ</span>
+              </div>
+            </label>
+            <div class="metric-card">
+              <span>Tổng tỷ lệ KM</span>
+              <strong id="installmentRate">30%</strong>
+            </div>
+            <div class="metric-card green">
+              <span>Tiền KM nhận</span>
+              <strong id="installmentPromo">5.555.556đ</strong>
+            </div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="data-table installment-table">
+              <thead>
+                <tr>
+                  <th>Kỳ hạn</th>
+                  <th id="bankRateHeading">Phí ACB</th>
+                  <th>Tiền phí phải trả</th>
+                  <th>Tiền KM nhận</th>
+                  <th>Lợi ích ròng</th>
+                  <th>Góp/tháng (ước tính)</th>
+                </tr>
+              </thead>
+              <tbody id="installmentRows"></tbody>
+            </table>
+          </div>
+          <p class="section-note" id="bankNotice"></p>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>Công cụ khuyến mãi · Tháng 9/2026</span>
+        <span>Tính trực tiếp trên trình duyệt · Không lưu dữ liệu khách hàng</span>
+      </footer>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
