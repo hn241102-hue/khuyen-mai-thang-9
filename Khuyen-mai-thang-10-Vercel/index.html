@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#c20000" />
+    <meta
+      name="description"
+      content="Nạp tiền hôm nay – Nhận thêm tới 35% ưu đãi. Chương trình cho khách hàng cá nhân từ 03/10 đến 11/10/2026."
+    />
+    <title>Nạp tiền hôm nay – Nhận thêm tới 35% ưu đãi</title>
+    <link rel="stylesheet" href="./fonts.css" />
+    <link rel="stylesheet" href="./styles.css?v=20261003" />
+    <script type="module" src="./app.js?v=20261003"></script>
+  </head>
+  <body>
+    <img id="campaignAsset" src="./assets/campaign-reference.png" hidden alt="" aria-hidden="true" />
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg> Công cụ tư vấn khuyến mãi · <span data-bonus-label>Ontop</span></p>
+        <h1 id="pageHeading">Tư vấn ưu đãi tháng 10</h1>
+        <p class="hero-copy">
+          Khuyến mãi từ <strong id="campaignPeriod">03/10/2026 – 11/10/2026</strong>. Tổng ưu đãi bằng ưu đãi thường cộng
+          <span data-bonus-label>Ontop</span> và được tính trên giá trị chưa VAT.
+        </p>
+      </header>
+
+      <main>
+        <section class="setup-grid" aria-label="Thiết lập công cụ">
+          <article class="setup-card">
+            <p class="field-label">Đối tượng khách hàng</p>
+            <div class="segmented" id="customerSwitcher" role="group" aria-label="Đối tượng khách hàng">
+              <button class="segment is-active" type="button" data-customer="personal" aria-pressed="true">
+                <span aria-hidden="true">♙</span> Cá nhân
+              </button>
+              <button class="segment" type="button" data-customer="business" aria-pressed="false">
+                <span aria-hidden="true">▦</span> Doanh nghiệp
+              </button>
+            </div>
+          </article>
+
+          <article class="setup-card">
+            <label class="field-label" for="bankSelect">Ngân hàng trả góp</label>
+            <div class="select-wrap">
+              <select id="bankSelect" aria-label="Ngân hàng trả góp"></select>
+            </div>
+          </article>
+
+          <article class="setup-card">
+            <p class="field-label">Chương trình áp dụng</p>
+            <label class="check-control">
+              <input id="flashToggle" type="checkbox" checked />
+              <span class="check-box" aria-hidden="true"></span>
+              <span id="toggleCampaignLabel">Ontop 03/10–11/10</span>
+            </label>
+            <p class="field-hint">Bỏ chọn để chỉ tính ưu đãi thường.</p>
+          </article>
+        </section>
+
+        <section class="contact-card" aria-label="Thông tin liên hệ trên ảnh tải xuống">
+          <div class="contact-label">
+            <span>Liên hệ ngay</span>
+            <small>Thông tin này sẽ xuất hiện trên ảnh PNG</small>
+          </div>
+          <label>
+            <span class="sr-only">Số điện thoại</span>
+            <input id="advisorPhone" type="tel" inputmode="tel" placeholder="Số điện thoại (VD: 0966 835 825)" />
+          </label>
+          <label>
+            <span class="sr-only">Tên tư vấn viên</span>
+            <input id="advisorName" type="text" placeholder="Tên tư vấn viên" />
+          </label>
+        </section>
+
+        <aside class="campaign-alert" id="campaignAlert" aria-label="Thông báo chương trình">
+          <span class="alert-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg></span>
+          <p>
+            <strong id="campaignName">Nạp tiền hôm nay – Nhận thêm tới 35% ưu đãi</strong>
+            <span id="campaignStatus">Đang tính ưu đãi thường + Ontop.</span>
+          </p>
+        </aside>
+
+        <nav class="section-nav" aria-label="Đi đến phân mục">
+          <span>Hiển thị mục:</span>
+          <button type="button" data-scroll="calculator" class="nav-pill is-active">1 · Tra cứu khuyến mãi</button>
+          <button type="button" data-scroll="offerBoard" class="nav-pill">2 · Bảng phương án</button>
+          <button type="button" data-scroll="installment" class="nav-pill">3 · Trả góp ngân hàng</button>
+        </nav>
+
+        <section class="content-section" id="calculator">
+          <header class="section-heading">
+            <span class="section-number">01</span>
+            <div>
+              <p>Tính tự động theo chính sách</p>
+              <h2>Tra cứu khuyến mãi theo số tiền nạp</h2>
+            </div>
+            <span class="customer-badge" data-customer-label>Khách hàng cá nhân</span>
+          </header>
+
+          <div class="table-scroll">
+            <table class="data-table lookup-table">
+              <thead>
+                <tr>
+                  <th>Số tiền nạp <small>(gồm VAT)</small></th>
+                  <th>Ưu đãi thường <small>HSD 180 ngày</small></th>
+                  <th><span id="lookupBonusHeading">Ontop 03/10–11/10</span> <small>HSD 90 ngày</small></th>
+                  <th>Tổng ưu đãi</th>
+                  <th>Tiền khuyến mãi</th>
+                </tr>
+              </thead>
+              <tbody id="lookupRows"></tbody>
+            </table>
+          </div>
+          <footer class="table-footer">
+            <button class="outline-button" id="addLookupRow" type="button"><span>＋</span> Thêm số tiền</button>
+            <span class="row-counter" id="lookupCounter">3/10 dòng</span>
+            <p class="formula-inline">Tiền KM = (Số tiền nạp ÷ 1,08) × Tổng tỷ lệ ưu đãi.</p>
+          </footer>
+
+          <div class="policy-area">
+            <div class="subheading-row">
+              <div>
+                <p class="mini-eyebrow">Chính sách đã đối chiếu</p>
+                <h3>Bảng tỷ lệ khuyến mãi</h3>
+              </div>
+              <span>Đơn vị: %</span>
+            </div>
+            <div class="policy-grid" id="policyGrid"></div>
+          </div>
+        </section>
+
+        <section class="content-section" id="offerBoard">
+          <header class="section-heading">
+            <span class="section-number">02</span>
+            <div>
+              <p>Mỗi dòng là một lựa chọn độc lập</p>
+              <h2>Bảng phương án ưu đãi</h2>
+            </div>
+            <span class="customer-badge" data-customer-label>Khách hàng cá nhân</span>
+          </header>
+
+          <div class="section-actions">
+            <div class="inline-actions">
+              <button class="text-button" id="addOfferRow" type="button"><span>＋</span> Thêm số tiền</button>
+              <span class="row-counter" id="offerCounter">3/10 dòng</span>
+            </div>
+            <button class="primary-button" id="downloadPng" type="button">
+              <span aria-hidden="true">⇩</span> Tải bảng (.PNG)
+            </button>
+          </div>
+
+          <div class="board-controls" aria-label="Điều chỉnh kích thước bảng phương án">
+            <label for="boardWidth">Chiều rộng <output id="boardWidthValue">1.120 px</output>
+              <input id="boardWidth" type="range" min="980" max="1600" step="10" value="1120" />
+            </label>
+            <label for="boardRowHeight">Giãn dòng <output id="boardRowHeightValue">124 px</output>
+              <input id="boardRowHeight" type="range" min="110" max="180" step="2" value="124" />
+            </label>
+            <button class="outline-button" id="resetBoardSize" type="button">Đặt lại kích thước</button>
+          </div>
+          <p class="resize-hint" id="resizeHint">Kéo mép giữa các cột để chỉnh độ rộng. Kéo góc dưới bên phải để giãn bảng. Kích thước được áp dụng khi tải PNG.</p>
+          <div class="board-viewport" tabindex="0" role="region" aria-label="Bảng phương án — cuộn ngang để xem đầy đủ" aria-describedby="resizeHint">
+          <div class="promo-board" id="promoBoard">
+            <div class="board-topline">
+              <div class="campaign-logo" role="img" aria-label="Batdongsan.com.vn by PropertyGuru"></div>
+              <span class="campaign-season">ƯU ĐÃI THÁNG 10 / 2026</span>
+            </div>
+            <div class="board-hero">
+              <div class="board-headline">
+                <span class="board-customer" data-customer-label>Khách hàng cá nhân</span>
+                <p class="flash-title" id="boardCampaignTitle">ƯU ĐÃI<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg></p>
+                <h3 id="boardCampaignHeadline"><span id="boardHeadlineMain">Nạp tiền hôm nay</span><br /><span id="boardHeadlineBenefit" style="font-size:34px">Nhận thêm tới 35% ưu đãi</span></h3>
+                <p class="board-date" id="boardCampaignDate"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18M8 15h2m4 0h2m-8 3h2"/></svg><span id="boardDateText">03/10 – 11/10/2026</span></p>
+              </div>
+              <div class="campaign-art" role="img" aria-label="Đồng xu vàng và mũi tên tăng trưởng từ hình chương trình"></div>
+              <div class="max-offer"><span>Tổng ưu đãi đến</span><strong id="maxOfferValue">35%</strong><small>Ưu đãi thường + Ontop</small></div>
+            </div>
+            <div class="board-table-wrap">
+              <table class="board-table">
+                <colgroup id="offerColumns"><col style="width:28%"/><col style="width:19%"/><col style="width:19%"/><col style="width:15%"/><col style="width:19%"/></colgroup>
+                <thead><tr>
+                  <th scope="col">Giá trị HĐ <small>(gồm VAT)</small><span class="column-resizer" role="separator" tabindex="0" aria-orientation="vertical" aria-label="Độ rộng cột Giá trị HĐ" data-column="0"></span></th>
+                  <th scope="col">Ưu đãi thường <small>HSD 180 ngày</small><span class="column-resizer" role="separator" tabindex="0" aria-orientation="vertical" aria-label="Độ rộng cột Ưu đãi thường" data-column="1"></span></th>
+                  <th scope="col"><span data-bonus-label>Ontop</span> <small id="boardBonusPeriod">03/10–11/10 · HSD 90 ngày</small><span class="column-resizer" role="separator" tabindex="0" aria-orientation="vertical" aria-label="Độ rộng cột Ontop" data-column="2"></span></th>
+                  <th scope="col">Tổng %<br/>khuyến mãi<span class="column-resizer" role="separator" tabindex="0" aria-orientation="vertical" aria-label="Độ rộng cột Tổng % khuyến mãi" data-column="3"></span></th>
+                  <th scope="col">Tổng tiền KM <small>Trên giá chưa VAT</small></th>
+                </tr></thead>
+                <tbody id="offerRows"></tbody>
+              </table>
+            </div>
+            <div class="board-details">
+              <div><span class="detail-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Ưu đãi thường<strong>Sử dụng trong 180 ngày</strong></span></div>
+              <div><span class="detail-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg></span><span><span data-bonus-label>Ontop</span><strong>Sử dụng trong 90 ngày</strong></span></div>
+              <div class="board-contact-block"><span>Liên hệ tư vấn</span><strong id="boardContact">Chọn phương án phù hợp với bạn</strong></div>
+            </div>
+            <div class="board-footnote">Tiền KM = (Giá trị HĐ ÷ 1,08) × Tổng % khuyến mãi. Mức ưu đãi thay đổi theo giá trị HĐ.</div>
+            <button class="board-resizer" id="boardResizeHandle" type="button" aria-label="Kéo giãn bảng phương án; phím trái phải chỉnh chiều rộng, lên xuống chỉnh giãn dòng" title="Kéo giãn bảng">⤡</button>
+          </div>
+          </div>
+        </section>
+
+        <section class="content-section" id="installment">
+          <header class="section-heading">
+            <span class="section-number">03</span>
+            <div>
+              <p>So sánh theo 4 kỳ hạn</p>
+              <h2>Trả góp ngân hàng — lợi ích ròng & góp/tháng</h2>
+            </div>
+          </header>
+
+          <div class="installment-inputs">
+            <label>
+              <span>Số tiền trả góp</span>
+              <div class="money-input compact">
+                <input id="installmentAmount" inputmode="numeric" value="20.000.000" aria-label="Số tiền trả góp" />
+                <span>đ</span>
+              </div>
+            </label>
+            <div class="metric-card">
+              <span>Tổng tỷ lệ KM</span>
+              <strong id="installmentRate">30%</strong>
+            </div>
+            <div class="metric-card green">
+              <span>Tiền KM nhận</span>
+              <strong id="installmentPromo">5.555.556đ</strong>
+            </div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="data-table installment-table">
+              <thead>
+                <tr>
+                  <th>Kỳ hạn</th>
+                  <th id="bankRateHeading">Phí ACB</th>
+                  <th>Tiền phí phải trả</th>
+                  <th>Tiền KM nhận</th>
+                  <th>Lợi ích ròng</th>
+                  <th>Góp/tháng (ước tính)</th>
+                </tr>
+              </thead>
+              <tbody id="installmentRows"></tbody>
+            </table>
+          </div>
+          <p class="section-note" id="bankNotice"></p>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span id="footerCampaign">Công cụ khuyến mãi · Tháng 10/2026</span>
+        <span>Tính trực tiếp trên trình duyệt · Không lưu dữ liệu khách hàng</span>
+      </footer>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
