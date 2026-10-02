@@ -2,10 +2,34 @@ export const VAT_RATE = 0.08;
 export const MAX_ROWS = 10;
 
 export const CAMPAIGN = Object.freeze({
-  name: "Nạp nhanh kẻo lỡ – Ưu đãi đang chờ",
-  start: "23/09/2026",
-  end: "29/09/2026",
-  short: "23–29/9",
+  name: "Nạp tiền hôm nay – Nhận thêm tới 35% ưu đãi",
+  headline: ["Nạp tiền hôm nay", "Nhận thêm tới 35% ưu đãi"],
+  start: "03/10/2026",
+  end: "11/10/2026",
+  short: "03/10–11/10",
+  period: "03/10 – 11/10/2026",
+  month: "10",
+  year: "2026",
+  bonusLabel: "Ontop",
+  bannerLabel: "ƯU ĐÃI",
+});
+
+// The supplied October policy applies to personal customers only.
+// Keep the previous business policy and its own dates separate.
+export const CAMPAIGNS = Object.freeze({
+  personal: CAMPAIGN,
+  business: Object.freeze({
+    name: "Nạp nhanh kẻo lỡ – Ưu đãi đang chờ",
+    headline: ["Nạp nhanh kẻo lỡ", "Ưu đãi đang chờ"],
+    start: "23/09/2026",
+    end: "29/09/2026",
+    short: "23–29/9",
+    period: "23/9 – 29/9/2026",
+    month: "9",
+    year: "2026",
+    bonusLabel: "Flash Sale",
+    bannerLabel: "FLASH SALE",
+  }),
 });
 
 export const CUSTOMER_LABELS = Object.freeze({
@@ -15,8 +39,8 @@ export const CUSTOMER_LABELS = Object.freeze({
 
 export const TIERS = Object.freeze({
   personal: [
-    { label: "500.000 – < 1 triệu", min: 500_000, max: 1_000_000, regular: 0, flash: 8 },
-    { label: "1 – < 2 triệu", min: 1_000_000, max: 2_000_000, regular: 0, flash: 10 },
+    { label: "500.000 – < 1 triệu", min: 500_000, max: 1_000_000, regular: 0, flash: 10 },
+    { label: "1 – < 2 triệu", min: 1_000_000, max: 2_000_000, regular: 0, flash: 15 },
     { label: "2 – < 5 triệu", min: 2_000_000, max: 5_000_000, regular: 2, flash: 18 },
     { label: "5 – < 10 triệu", min: 5_000_000, max: 10_000_000, regular: 4, flash: 21 },
     { label: "10 – < 20 triệu", min: 10_000_000, max: 20_000_000, regular: 6, flash: 24 },

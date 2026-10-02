@@ -1,6 +1,6 @@
 import {
   BANKS,
-  CAMPAIGN,
+  CAMPAIGNS,
   CUSTOMER_LABELS,
   INSTALLMENT_TERMS,
   MAX_ROWS,
@@ -10,7 +10,7 @@ import {
   formatInputMoney,
   formatMoney,
   parseMoney,
-} from "./pricing.js";
+} from "./pricing.js?v=20261003";
 
 function createId() {
   return globalThis.crypto?.randomUUID?.() ?? `row-${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -79,6 +79,7 @@ function renderBankOptions() {
 }
 
 function renderCustomerState() {
+  const campaign = CAMPAIGNS[state.customer];
   document.querySelectorAll("[data-customer]").forEach((button) => {
     const active = button.dataset.customer === state.customer;
     button.classList.toggle("is-active", active);
@@ -89,10 +90,26 @@ function renderCustomerState() {
     element.textContent = CUSTOMER_LABELS[state.customer];
   });
 
-  document.querySelector("#boardCampaignTitle").innerHTML = state.includeFlash ? 'FLASH SALE<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg>' : 'ƯU ĐÃI THƯỜNG';
+  document.title = campaign.name;
+  document.querySelector('#pageHeading').textContent = `Tư vấn ưu đãi tháng ${campaign.month}`;
+  document.querySelector('#campaignPeriod').textContent = `${campaign.start} – ${campaign.end}`;
+  document.querySelector('#campaignName').textContent = campaign.name;
+  document.querySelectorAll('[data-bonus-label]').forEach(element => { element.textContent = campaign.bonusLabel; });
+  document.querySelector('#toggleCampaignLabel').textContent = `${campaign.bonusLabel} ${campaign.short}`;
+  document.querySelector('#lookupBonusHeading').textContent = `${campaign.bonusLabel} ${campaign.short}`;
+  document.querySelector('.campaign-season').textContent = `ƯU ĐÃI THÁNG ${campaign.month} / ${campaign.year}`;
+  document.querySelector('#boardHeadlineMain').textContent = campaign.headline[0];
+  document.querySelector('#boardHeadlineBenefit').textContent = campaign.headline[1];
+  document.querySelector('#boardHeadlineBenefit').style.fontSize = state.customer === 'personal' ? '34px' : '';
+  document.querySelector('#boardDateText').textContent = campaign.period;
+  document.querySelector('#boardBonusPeriod').textContent = `${campaign.short} · HSD 90 ngày`;
+  document.querySelector('.column-resizer[data-column="2"]').setAttribute('aria-label', `Độ rộng cột ${campaign.bonusLabel}`);
+  document.querySelector('#footerCampaign').textContent = `Công cụ khuyến mãi · Tháng ${campaign.month}/${campaign.year}`;
+  document.querySelector("#boardCampaignTitle").innerHTML = state.includeFlash ? `${escapeHtml(campaign.bannerLabel)}<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg>` : 'ƯU ĐÃI THƯỜNG';
   document.querySelector("#boardCampaignDate").style.visibility = state.includeFlash ? "visible" : "hidden";
-  document.querySelector(".max-offer small").textContent = state.includeFlash ? "Ưu đãi thường + Flash Sale" : "Chỉ tính ưu đãi thường";
-  document.querySelector("#campaignStatus").textContent = state.includeFlash ? "Đang áp dụng ưu đãi thường + Flash Sale." : "Đã tắt Flash Sale. Chỉ tính ưu đãi thường.";
+  document.querySelector(".max-offer small").textContent = state.includeFlash ? `Ưu đãi thường + ${campaign.bonusLabel}` : "Chỉ tính ưu đãi thường";
+  const status = state.includeFlash ? `Đang tính ưu đãi thường + ${campaign.bonusLabel}.` : `Đã tắt ${campaign.bonusLabel}. Chỉ tính ưu đãi thường.`;
+  document.querySelector("#campaignStatus").textContent = state.customer === 'business' ? `Bảng doanh nghiệp cũ ${campaign.period}. ${status}` : status;
   document.querySelector("#campaignAlert").classList.toggle("is-disabled", !state.includeFlash);
   const maxTier = TIERS[state.customer].at(-1);
   els.maxOfferValue.textContent = `${maxTier.regular + (state.includeFlash ? maxTier.flash : 0)}%`;
@@ -158,6 +175,7 @@ function renderRows() {
 function renderPolicyTables() {
   els.policyGrid.innerHTML = Object.entries(TIERS)
     .map(([customer, tiers]) => {
+      const campaign = CAMPAIGNS[customer];
       const rows = tiers
         .map((tier) => {
           const flash = state.includeFlash ? tier.flash : 0;
@@ -173,10 +191,10 @@ function renderPolicyTables() {
 
       return `
         <article class="policy-card ${customer === state.customer ? "is-current" : ""}">
-          <h4>${CUSTOMER_LABELS[customer]}</h4>
+          <h4>${CUSTOMER_LABELS[customer]} · ${campaign.short}/${campaign.year}${customer === 'business' ? ' (bảng cũ)' : ''}</h4>
           <div class="table-scroll">
             <table class="policy-table">
-              <thead><tr><th>Mức nạp (gồm VAT)</th><th>Thường</th><th>Flash</th><th>Tổng</th></tr></thead>
+              <thead><tr><th>Mức nạp (gồm VAT)</th><th>Thường</th><th>${campaign.bonusLabel}</th><th>Tổng</th></tr></thead>
               <tbody>${rows}</tbody>
             </table>
           </div>
@@ -438,6 +456,7 @@ function canvasPill(ctx, text, cx, y, width, height, fill, color, size = 20) {
   canvasText(ctx, text, cx, y + height / 2 + size * .35, size, 800, color, width - 12, 'center');
 }
 function createPromotionCanvas() {
+  const campaign = CAMPAIGNS[state.customer];
   const width = boardLayout.width;
   const tableY = 410, headerHeight = 72, rowHeight = boardLayout.rowHeight;
   const tableX = 24, tableWidth = width - 48;
@@ -459,23 +478,23 @@ function createPromotionCanvas() {
     const fadeLeft=ctx.createLinearGradient(width-398,0,width-330,0);fadeLeft.addColorStop(0,'#fffafa');fadeLeft.addColorStop(1,'#fffafa00');ctx.fillStyle=fadeLeft;ctx.fillRect(width-398,60,68,381);
     const fadeTop=ctx.createLinearGradient(0,60,0,95);fadeTop.addColorStop(0,'#fffafa');fadeTop.addColorStop(1,'#fffafa00');ctx.fillStyle=fadeTop;ctx.fillRect(width-398,60,390,35);
   }
-  canvasText(ctx,'ƯU ĐÃI THÁNG 9 / 2026',width-32,57,12,800,'#c70529',260,'right');
+  canvasText(ctx,`ƯU ĐÃI THÁNG ${campaign.month} / ${campaign.year}`,width-32,57,12,800,'#c70529',260,'right');
   const customer = CUSTOMER_LABELS[state.customer];
   ctx.font = '700 14px Manrope, Arial';
   const customerWidth = ctx.measureText(customer).width + 28;
   drawRoundRect(ctx,32,108,customerWidth,31,16,'#fff0f2','#f7dbe1');
   canvasText(ctx,customer,46,129,14,700,'#cf0725');
-  canvasText(ctx,state.includeFlash ? 'FLASH SALE' : 'ƯU ĐÃI THƯỜNG',32,207,state.includeFlash ? 62 : 44,800,'#e40024',width*.54-48);
+  canvasText(ctx,state.includeFlash ? campaign.bannerLabel : 'ƯU ĐÃI THƯỜNG',32,207,state.includeFlash ? 62 : 44,800,'#e40024',width*.54-48);
   if (state.includeFlash) {
     ctx.font='800 62px Manrope, Arial';
-    const boltX=32+ctx.measureText('FLASH SALE').width+12;
+    const boltX=32+ctx.measureText(campaign.bannerLabel).width+12;
     drawCanvasIcon(ctx,'bolt',boltX,153,38,'#e40024');
   }
-  canvasText(ctx,'Nạp nhanh kẻo lỡ',32,261,44,800,'#111b35',width*.53-42);
-  canvasText(ctx,'Ưu đãi đang chờ',32,314,44,800,'#111b35',width*.53-42);
+  canvasText(ctx,campaign.headline[0],32,261,44,800,'#111b35',width*.53-42);
+  canvasText(ctx,campaign.headline[1],32,314,state.customer === 'personal' ? 34 : 44,800,'#111b35',width*.53-42);
   if (state.includeFlash) {
     drawRoundRect(ctx,32,337,216,34,8,'#fff0f3','#f4bac6');
-    canvasText(ctx,'23/9 – 29/9/2026',140,360,16,700,'#d60a30',200,'center');
+    canvasText(ctx,campaign.period,140,360,16,700,'#d60a30',200,'center');
   }
   const maxTier = TIERS[state.customer].at(-1);
   const maxRate = maxTier.regular + (state.includeFlash ? maxTier.flash : 0);
@@ -484,14 +503,14 @@ function createPromotionCanvas() {
   drawRoundRect(ctx,-98,-68,196,136,15,'#fffffff5','#f4cbd3');
   canvasText(ctx,'TỔNG ƯU ĐÃI ĐẾN',0,-39,13,800,'#1d2842',174,'center');
   canvasText(ctx,`${maxRate}%`,0,27,68,800,'#df0629',174,'center');
-  canvasText(ctx,state.includeFlash ? 'Ưu đãi thường + Flash Sale' : 'Chỉ tính ưu đãi thường',0,49,10,600,'#67718a',176,'center');
+  canvasText(ctx,state.includeFlash ? `Ưu đãi thường + ${campaign.bonusLabel}` : 'Chỉ tính ưu đãi thường',0,49,10,600,'#67718a',176,'center');
   ctx.restore();
   const columns = boardLayout.columns.map(v => v/100);
   ctx.save(); ctx.beginPath(); ctx.roundRect(tableX,tableY,tableWidth,headerHeight + state.rows.length*rowHeight,15); ctx.clip();
   const tableGradient = ctx.createLinearGradient(tableX,tableY,width,tableY+80);
   tableGradient.addColorStop(0,'#ed1535');tableGradient.addColorStop(1,'#a9001c');
   ctx.fillStyle=tableGradient; ctx.fillRect(tableX,tableY,tableWidth,headerHeight);
-  const headers = [['Giá trị HĐ','(gồm VAT)'],['Ưu đãi thường','HSD 180 ngày'],['Flash Sale','23–29/9 · HSD 90 ngày'],['Tổng %','khuyến mãi'],['Tổng tiền KM','Trên giá chưa VAT']];
+  const headers = [['Giá trị HĐ','(gồm VAT)'],['Ưu đãi thường','HSD 180 ngày'],[campaign.bonusLabel,`${campaign.short} · HSD 90 ngày`],['Tổng %','khuyến mãi'],['Tổng tiền KM','Trên giá chưa VAT']];
   let x = tableX;
   headers.forEach(([title,subtitle],i) => {
     const cw=tableWidth*columns[i], cx=x+cw/2;
@@ -524,7 +543,7 @@ function createPromotionCanvas() {
   ctx.restore();
   ctx.strokeStyle='#f1cad2'; ctx.lineWidth=1; ctx.beginPath();ctx.roundRect(tableX,tableY,tableWidth,headerHeight+state.rows.length*rowHeight,15);ctx.stroke();
   const footerY=tableBottom+25;
-  [[32,'✓','Ưu đãi thường','Sử dụng trong 180 ngày'],[290,'ϟ','Flash Sale','Sử dụng trong 90 ngày']].forEach(([x,icon,title,detail])=>{
+  [[32,'✓','Ưu đãi thường','Sử dụng trong 180 ngày'],[290,'ϟ',campaign.bonusLabel,'Sử dụng trong 90 ngày']].forEach(([x,icon,title,detail])=>{
     drawRoundRect(ctx,x,footerY,42,42,21,'#ffe8ee'); drawCanvasIcon(ctx,icon==='✓'?'check':'bolt',x+10,footerY+10,22,'#dd0830');
     canvasText(ctx,title,x+54,footerY+14,12,500,'#5e687e',210);
     canvasText(ctx,detail,x+54,footerY+35,13,700,'#26324d',210);
@@ -549,7 +568,9 @@ async function downloadPromotionPng() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     const customerName = state.customer === 'personal' ? 'ca-nhan' : 'doanh-nghiep';
-    link.download = `bang-uu-dai-${customerName}-${state.includeFlash?'flash-sale':'thuong'}-thang-9-2026.png`;
+    const campaign = CAMPAIGNS[state.customer];
+    const bonusSlug = campaign.bonusLabel === 'Ontop' ? 'ontop' : 'flash-sale';
+    link.download = `bang-uu-dai-${customerName}-${state.includeFlash?bonusSlug:'thuong'}-thang-${campaign.month}-${campaign.year}.png`;
     link.href = url; document.body.append(link);link.click();link.remove();
     window.setTimeout(()=>URL.revokeObjectURL(url),30000);
     showToast('Đã tạo PNG với đầy đủ phần trăm, trang trí và kích thước bạn chọn.');
