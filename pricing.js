@@ -14,21 +14,15 @@ export const CAMPAIGN = Object.freeze({
   bannerLabel: "ƯU ĐÃI",
 });
 
-// The supplied October policy applies to personal customers only.
-// Keep the previous business policy and its own dates separate.
+// Business rates: assets/business-policy-october.png supplied by the user.
+// Campaign dates and VAT retain the October reference website settings.
+// The supplied rate image does not specify exact start/end dates.
 export const CAMPAIGNS = Object.freeze({
   personal: CAMPAIGN,
   business: Object.freeze({
-    name: "Nạp nhanh kẻo lỡ – Ưu đãi đang chờ",
-    headline: ["Nạp nhanh kẻo lỡ", "Ưu đãi đang chờ"],
-    start: "23/09/2026",
-    end: "29/09/2026",
-    short: "23–29/9",
-    period: "23/9 – 29/9/2026",
-    month: "9",
-    year: "2026",
-    bonusLabel: "Flash Sale",
-    bannerLabel: "FLASH SALE",
+    ...CAMPAIGN,
+    name: "Ưu đãi doanh nghiệp tháng 10 lên đến 40%",
+    headline: ["Nạp tiền hôm nay", "Nhận thêm tới 40% ưu đãi"],
   }),
 });
 
@@ -49,12 +43,15 @@ export const TIERS = Object.freeze({
     { label: "≥ 50 triệu", min: 50_000_000, max: null, regular: 10, flash: 26 },
   ],
   business: [
-    { label: "5 – < 10 triệu", min: 5_000_000, max: 10_000_000, regular: 0, flash: 15 },
-    { label: "10 – < 20 triệu", min: 10_000_000, max: 20_000_000, regular: 5, flash: 25 },
-    { label: "20 – < 50 triệu", min: 20_000_000, max: 50_000_000, regular: 7, flash: 25 },
-    { label: "50 – < 100 triệu", min: 50_000_000, max: 100_000_000, regular: 10, flash: 25 },
-    { label: "100 – < 300 triệu", min: 100_000_000, max: 300_000_000, regular: 12, flash: 25 },
-    { label: "≥ 300 triệu", min: 300_000_000, max: null, regular: 14, flash: 25 },
+    { label: "500.000 – < 1 triệu", min: 500_000, max: 1_000_000, regular: 0, flash: 0 },
+    { label: "1 – < 3 triệu", min: 1_000_000, max: 3_000_000, regular: 0, flash: 18 },
+    { label: "3 – < 5 triệu", min: 3_000_000, max: 5_000_000, regular: 0, flash: 22 },
+    { label: "5 – < 10 triệu", min: 5_000_000, max: 10_000_000, regular: 0, flash: 24 },
+    { label: "10 – < 20 triệu", min: 10_000_000, max: 20_000_000, regular: 5, flash: 24 },
+    { label: "20 – < 50 triệu", min: 20_000_000, max: 50_000_000, regular: 7, flash: 26 },
+    { label: "50 – < 100 triệu", min: 50_000_000, max: 100_000_000, regular: 10, flash: 26 },
+    { label: "100 – < 300 triệu", min: 100_000_000, max: 300_000_000, regular: 12, flash: 26 },
+    { label: "≥ 300 triệu", min: 300_000_000, max: null, regular: 14, flash: 26 },
   ],
 });
 

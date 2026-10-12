@@ -1,10 +1,11 @@
 {
-  "name": "km-uu-dai-thang-9",
+  "name": "khuyen-mai-doanh-nghiep",
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "description": "Công cụ ưu đãi tháng 10 cho khách hàng cá nhân và doanh nghiệp",
   "scripts": {
-    "dev": "npx serve .",
-    "test": "node tests/pricing.test.mjs"
+    "test": "node --test tests/*.test.js",
+    "build": "node scripts/build.mjs"
   }
 }
