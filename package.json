@@ -1,11 +1,7 @@
 {
-  "name": "khuyen-mai-doanh-nghiep",
-  "version": "1.0.0",
+  "name": "khuyen-mai-thang-9",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
-  "description": "Công cụ ưu đãi tháng 10 cho khách hàng cá nhân và doanh nghiệp",
-  "scripts": {
-    "test": "node --test tests/*.test.js",
-    "build": "node scripts/build.mjs"
-  }
+  "description": "Website ưu đãi tháng 10. Toàn bộ ứng dụng nằm trong index.html; không cần build."
 }

@@ -1,0 +1,2340 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#c20000" />
+    <meta
+      name="description"
+      content="Tính ưu đãi doanh nghiệp tháng 10 lên đến 40%. Tra cứu tỷ lệ, so sánh phương án và tải bảng PNG. Thời gian theo trang mẫu: 12/10 đến 16/10/2026."
+    />
+    <title>Ưu đãi doanh nghiệp tháng 10 lên đến 40%</title>
+    <style>
+:root {
+  --brand: #c20000;
+  --brand-bright: #e32222;
+  --brand-deep: #8f1014;
+  --brand-soft: #fff0f0;
+  --gold: #f4c45d;
+  --ink: #172237;
+  --muted: #6f7a8e;
+  --soft-muted: #9ba5b6;
+  --line: #e5e9f0;
+  --surface: #ffffff;
+  --surface-soft: #f6f8fb;
+  --green: #007a50;
+  --shadow: 0 10px 34px rgba(23, 34, 55, 0.07);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 11px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(194, 0, 0, 0.04), transparent 27rem),
+    #f5f7fa;
+  color: var(--ink);
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(194, 0, 0, 0.18);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.page-shell {
+  width: min(1180px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 34px 0 22px;
+}
+
+.hero {
+  padding: 6px 0 24px;
+}
+
+.eyebrow,
+.mini-eyebrow {
+  margin: 0 0 8px;
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.eyebrow span {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  border-radius: 8px;
+  background: var(--brand-soft);
+}
+
+.hero h1 {
+  max-width: 850px;
+  margin: 0;
+  font-size: clamp(31px, 4.2vw, 54px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.hero-copy {
+  max-width: 900px;
+  margin: 14px 0 0;
+  color: var(--muted);
+}
+
+.hero-copy strong {
+  color: var(--brand);
+}
+
+.mobile-break {
+  display: none;
+}
+
+.setup-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1.05fr 1fr;
+  gap: 16px;
+}
+
+.setup-card,
+.contact-card,
+.section-nav,
+.content-section {
+  border: 1px solid rgba(221, 226, 234, 0.86);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.setup-card {
+  min-height: 138px;
+  padding: 22px;
+  border-radius: var(--radius-lg);
+}
+
+.field-label {
+  display: block;
+  margin: 0 0 11px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.field-hint {
+  margin: 8px 0 0;
+  color: var(--soft-muted);
+  font-size: 11px;
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  padding: 6px;
+  border-radius: 15px;
+  background: var(--surface-soft);
+}
+
+.segment {
+  min-height: 46px;
+  border: 0;
+  border-radius: 11px;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.segment:hover {
+  color: var(--brand);
+}
+
+.segment.is-active {
+  background: var(--brand-bright);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(194, 0, 0, 0.2);
+}
+
+.segment span {
+  margin-right: 6px;
+  font-size: 18px;
+}
+
+.select-wrap {
+  position: relative;
+}
+
+.select-wrap::after {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  content: "⌄";
+  pointer-events: none;
+  transform: translateY(-58%);
+}
+
+.select-wrap select {
+  width: 100%;
+  min-height: 52px;
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  background: var(--surface-soft);
+  color: var(--ink);
+  padding: 0 44px 0 16px;
+}
+
+.check-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.check-control input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.check-box {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  border: 2px solid #c7cdd7;
+  border-radius: 6px;
+}
+
+.check-control input:checked + .check-box {
+  border-color: var(--brand-bright);
+  background: var(--brand-bright);
+}
+
+.check-control input:checked + .check-box::after {
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 5px;
+  height: 10px;
+  content: "";
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg);
+}
+
+.contact-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  align-items: center;
+  margin-top: 16px;
+  padding: 17px 20px;
+  border-radius: var(--radius-md);
+}
+
+.contact-label span {
+  display: block;
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.contact-label small {
+  color: var(--soft-muted);
+}
+
+.contact-card input {
+  width: 100%;
+  height: 46px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: var(--surface-soft);
+  color: var(--ink);
+  padding: 0 15px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.contact-card input:focus {
+  border-color: rgba(194, 0, 0, 0.25);
+  background: #fff;
+}
+
+.campaign-alert {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 18px 0;
+  padding: 15px 20px;
+  border-radius: 16px;
+  background: linear-gradient(112deg, var(--brand-bright), var(--brand));
+  box-shadow: 0 12px 28px rgba(194, 0, 0, 0.17);
+  color: #fff;
+}
+
+.campaign-alert p {
+  margin: 0;
+}
+
+.alert-icon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 20px;
+}
+
+.section-nav {
+  position: sticky;
+  top: 10px;
+  z-index: 20;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 22px;
+  padding: 11px 14px;
+  border-radius: 15px;
+}
+
+.section-nav > span {
+  margin-right: 5px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.nav-pill {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.nav-pill:hover,
+.nav-pill.is-active {
+  border-color: var(--brand-bright);
+  background: var(--brand-bright);
+  color: #fff;
+}
+
+.content-section {
+  margin-bottom: 24px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  scroll-margin-top: 82px;
+}
+
+.section-heading {
+  position: relative;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  min-height: 100px;
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(90deg, #fff9e7, #fff 36%);
+}
+
+.section-heading::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  content: "";
+  background: var(--brand-bright);
+}
+
+.section-number {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.section-heading p {
+  margin: 0 0 3px;
+  color: var(--brand);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(20px, 2.5vw, 26px);
+  line-height: 1.25;
+}
+
+.customer-badge {
+  margin-left: auto;
+  border-radius: 999px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  padding: 8px 13px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  scrollbar-color: #aeb5c1 #f0f2f5;
+  scrollbar-width: thin;
+}
+
+.data-table,
+.board-table,
+.policy-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table {
+  min-width: 920px;
+}
+
+.data-table th {
+  height: 60px;
+  background: #f6f7fa;
+  color: #566075;
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.data-table th small,
+.board-table th small {
+  display: block;
+  margin-top: 2px;
+  color: #8d98aa;
+  font-size: 9px;
+}
+
+.data-table td {
+  min-height: 70px;
+  padding: 14px 16px;
+  border-top: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+.data-table tbody tr:nth-child(even) {
+  background: #fffafa;
+}
+
+.lookup-table th:first-child,
+.lookup-table td:first-child {
+  width: 30%;
+}
+
+.lookup-table th:not(:first-child),
+.lookup-table td:not(:first-child) {
+  text-align: center;
+}
+
+.money-input {
+  display: flex;
+  align-items: center;
+  width: min(100%, 280px);
+  height: 46px;
+  border: 1px solid #d8dee8;
+  border-radius: 12px;
+  background: #f3f6fa;
+  transition: 0.2s ease;
+}
+
+.money-input:focus-within {
+  border-color: rgba(194, 0, 0, 0.42);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(194, 0, 0, 0.06);
+}
+
+.money-input input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  padding: 0 5px 0 13px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.money-input > span {
+  color: var(--soft-muted);
+  padding-right: 8px;
+  font-size: 11px;
+}
+
+.remove-row {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #9ea7b7;
+  font-size: 18px;
+}
+
+.remove-row:hover {
+  background: var(--brand-soft);
+  color: var(--brand);
+}
+
+.amount-control {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.rate-badge {
+  display: inline-flex;
+  min-width: 50px;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #f0f3f7;
+  color: #344057;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.rate-badge.flash {
+  background: var(--brand-soft);
+  color: var(--brand-bright);
+}
+
+.rate-badge.total {
+  background: var(--brand-bright);
+  box-shadow: 0 8px 16px rgba(194, 0, 0, 0.15);
+  color: #fff;
+}
+
+.promo-money {
+  color: var(--green);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.promo-money small {
+  display: block;
+  color: var(--soft-muted);
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.table-footer,
+.section-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 24px;
+  border-top: 1px solid var(--line);
+  background: #fbfcfd;
+}
+
+.outline-button,
+.primary-button,
+.text-button {
+  border-radius: 11px;
+  font-weight: 700;
+}
+
+.outline-button {
+  min-height: 44px;
+  border: 1px solid var(--brand-bright);
+  background: #fff;
+  color: var(--brand);
+  padding: 0 14px;
+}
+
+.outline-button:hover {
+  background: var(--brand-soft);
+}
+
+.outline-button:disabled,
+.text-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.row-counter {
+  color: var(--soft-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.formula-inline {
+  margin: 0 0 0 auto;
+  color: var(--soft-muted);
+  font-size: 11px;
+}
+
+.policy-area {
+  padding: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.subheading-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.subheading-row h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.subheading-row > span {
+  color: var(--soft-muted);
+  font-size: 11px;
+}
+
+.policy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.policy-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.policy-card.is-current {
+  border-color: rgba(194, 0, 0, 0.38);
+  box-shadow: 0 8px 22px rgba(194, 0, 0, 0.06);
+}
+
+.policy-card h4 {
+  margin: 0;
+  padding: 14px 16px;
+  background: #f5f7fa;
+  font-size: 13px;
+}
+
+.policy-card.is-current h4 {
+  background: var(--brand-soft);
+  color: var(--brand);
+}
+
+.policy-table th,
+.policy-table td {
+  border-top: 1px solid var(--line);
+  padding: 10px 12px;
+  text-align: right;
+  font-size: 11px;
+}
+
+.policy-table th:first-child,
+.policy-table td:first-child {
+  text-align: left;
+}
+
+.policy-table th {
+  color: var(--muted);
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.policy-table td:last-child {
+  color: var(--brand);
+  font-weight: 800;
+}
+
+.section-actions {
+  justify-content: space-between;
+}
+
+.inline-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.text-button {
+  border: 0;
+  background: transparent;
+  color: var(--brand);
+  padding: 8px 0;
+}
+
+.primary-button {
+  min-height: 44px;
+  border: 0;
+  background: var(--brand-bright);
+  color: #fff;
+  padding: 0 17px;
+  box-shadow: 0 9px 20px rgba(194, 0, 0, 0.17);
+}
+
+.primary-button:hover {
+  background: var(--brand);
+}
+
+.promo-board {
+  position: relative;
+  margin: 20px;
+  overflow: hidden;
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(110, 0, 0, 0.2), transparent 36%),
+    linear-gradient(145deg, #d91a1a 0%, #bd0000 52%, #950006 100%);
+  color: #fff;
+  box-shadow: 0 20px 38px rgba(126, 0, 0, 0.22);
+}
+
+.promo-board::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  background-image: radial-gradient(rgba(255, 216, 127, 0.38) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(90deg, transparent, black 52%, transparent);
+  opacity: 0.45;
+}
+
+.board-orb {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.board-orb-one {
+  top: -150px;
+  right: -40px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(255, 208, 115, 0.34), transparent 64%);
+}
+
+.board-orb-two {
+  bottom: -220px;
+  left: -110px;
+  width: 440px;
+  height: 440px;
+  background: radial-gradient(circle, rgba(255, 126, 126, 0.28), transparent 67%);
+}
+
+.board-topline,
+.board-hero,
+.board-meta,
+.board-table-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.board-topline {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 24px 32px 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.brand-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.board-hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 30px 32px 24px;
+}
+
+.board-hero p {
+  margin: 0 0 8px;
+  color: #ffe4ae;
+  font-weight: 700;
+}
+
+.board-hero h3 {
+  margin: 0;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.max-offer {
+  min-width: 210px;
+  text-align: right;
+}
+
+.max-offer span {
+  display: block;
+  color: #ffe4ae;
+  font-weight: 600;
+}
+
+.max-offer strong {
+  display: block;
+  font-size: clamp(54px, 8vw, 94px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.board-meta {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 32px 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.27);
+  color: #ffe4ae;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.board-table-wrap {
+  margin: 0 20px 20px;
+  overflow: auto;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.board-table {
+  min-width: 850px;
+  color: var(--ink);
+}
+
+.board-table th {
+  background: #a91217;
+  color: #fff;
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.board-table th:not(:first-child),
+.board-table td:not(:first-child) {
+  text-align: center;
+}
+
+.board-table th small {
+  color: #ffc9c9;
+}
+
+.board-table td {
+  padding: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.board-table tbody tr:nth-child(even) {
+  background: #f8f9fb;
+}
+
+.board-table .offer-amount {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.package-fields {
+  display: grid;
+  grid-template-columns: minmax(90px, 0.7fr) 1.3fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.package-fields input {
+  min-width: 0;
+  border: 0;
+  border-bottom: 1px dashed #cad0da;
+  outline: 0;
+  background: transparent;
+  color: #687386;
+  padding: 4px 0;
+  font-size: 9px;
+}
+
+.board-table .regular-value {
+  color: var(--ink);
+}
+
+.board-table .flash-value {
+  color: var(--brand-bright);
+}
+
+.board-table .total-value {
+  color: var(--green);
+}
+
+.installment-inputs {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 1fr;
+  gap: 14px;
+  padding: 20px 24px;
+  background: #fbfcfd;
+}
+
+.installment-inputs > label > span,
+.metric-card > span {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.money-input.compact {
+  width: 100%;
+}
+
+.metric-card {
+  min-height: 70px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: #fff;
+  padding: 11px 14px;
+}
+
+.metric-card strong {
+  color: var(--brand);
+  font-size: 19px;
+}
+
+.metric-card.green strong {
+  color: var(--green);
+}
+
+.installment-table th,
+.installment-table td {
+  text-align: right;
+}
+
+.installment-table th:first-child,
+.installment-table td:first-child {
+  text-align: left;
+}
+
+.net-positive {
+  color: var(--green);
+  font-weight: 800;
+}
+
+.net-negative {
+  color: var(--brand);
+  font-weight: 800;
+}
+
+.section-note {
+  margin: 0;
+  padding: 14px 24px 20px;
+  color: var(--soft-muted);
+  font-size: 10px;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 4px;
+  color: var(--soft-muted);
+  font-size: 10px;
+}
+
+.toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 50;
+  max-width: 360px;
+  border-radius: 12px;
+  background: var(--ink);
+  color: #fff;
+  padding: 12px 16px;
+  box-shadow: 0 14px 34px rgba(23, 34, 55, 0.24);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: 0.2s ease;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .setup-grid,
+  .policy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .setup-card {
+    min-height: auto;
+  }
+
+  .contact-card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-label {
+    grid-column: 1 / -1;
+  }
+
+  .section-nav {
+    overflow-x: auto;
+  }
+
+  .section-nav > span {
+    display: none;
+  }
+
+  .nav-pill {
+    white-space: nowrap;
+  }
+
+  .installment-inputs {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .installment-inputs > label {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 13px;
+  }
+
+  .page-shell {
+    width: min(100% - 20px, 1180px);
+    padding-top: 20px;
+  }
+
+  .mobile-break {
+    display: initial;
+  }
+
+  .hero-copy {
+    font-size: 12px;
+  }
+
+  .setup-grid {
+    gap: 10px;
+  }
+
+  .setup-card {
+    padding: 17px;
+    border-radius: 17px;
+  }
+
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-label {
+    grid-column: auto;
+  }
+
+  .campaign-alert {
+    align-items: flex-start;
+    padding: 14px;
+    font-size: 11px;
+  }
+
+  .section-nav {
+    margin-inline: -10px;
+    border-radius: 0;
+  }
+
+  .content-section {
+    margin-inline: -10px;
+    border-radius: 0;
+  }
+
+  .section-heading {
+    gap: 10px;
+    min-height: 86px;
+    padding: 16px 14px;
+  }
+
+  .section-number {
+    width: 42px;
+    height: 42px;
+  }
+
+  .customer-badge {
+    display: none;
+  }
+
+  .table-footer,
+  .section-actions {
+    flex-wrap: wrap;
+    padding: 14px;
+  }
+
+  .formula-inline {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .policy-area {
+    padding: 18px 14px;
+  }
+
+  .promo-board {
+    margin: 12px 10px;
+    border-radius: 18px;
+  }
+
+  .board-topline {
+    padding: 18px 18px 0;
+  }
+
+  .board-hero {
+    align-items: flex-start;
+    padding: 24px 18px 18px;
+  }
+
+  .board-hero h3 {
+    font-size: 34px;
+  }
+
+  .max-offer {
+    min-width: 100px;
+  }
+
+  .max-offer strong {
+    font-size: 48px;
+  }
+
+  .board-meta {
+    flex-direction: column;
+    gap: 4px;
+    margin: 0 18px 16px;
+  }
+
+  .board-table-wrap {
+    margin: 0 10px 10px;
+  }
+
+  .installment-inputs {
+    grid-template-columns: 1fr;
+    padding: 16px 14px;
+  }
+
+  .installment-inputs > label {
+    grid-column: auto;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    gap: 3px;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .page-shell {
+    width: 100%;
+  }
+
+  .section-nav,
+  .section-actions,
+  .table-footer,
+  .site-footer {
+    display: none;
+  }
+}
+
+/* September refresh: Vietnamese typography and editable campaign board. */
+:root{--ink:#111b35;--brand:#cf0725;--brand-bright:#ed1734;--brand-deep:#a60018;--brand-soft:#fff0f2;--muted:#526078;--soft-muted:#647086;--line:#e8eaf0;--shadow:0 6px 24px #18243a06}
+body{font-family:Arial,"Helvetica Neue",sans-serif;font-size:16px;line-height:1.6;background:radial-gradient(ellipse at 85% 0,#ffe7eb70,transparent 40%),#f7f8fb;-webkit-font-smoothing:antialiased}
+input,select,button{font-family:inherit}
+.page-shell{width:min(1280px,calc(100% - 48px));padding-top:32px}
+.hero{padding:0 0 24px;display:grid;grid-template-columns:1fr auto}
+.eyebrow{grid-column:1/-1;font-size:13px;letter-spacing:.05em}
+.hero h1{font-size:clamp(28px,3.2vw,42px);font-weight:800;line-height:1.3;letter-spacing:-.035em}
+.hero-copy{grid-column:1/-1;max-width:none;font-size:15px;margin-top:8px}
+.setup-grid{gap:12px;grid-template-columns:1.1fr 1fr 1fr}
+.setup-card{padding:20px;min-height:130px;border-radius:16px}
+.field-label{font-size:14px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--ink);margin-bottom:10px}
+.field-hint{font-size:13px}.segment{font-size:14px}.segment.is-active{box-shadow:0 3px 7px #c2000020}
+.select-wrap select{font-size:15px}.check-control{font-size:15px}.check-control input:focus-visible+.check-box{outline:3px solid #ee173455;outline-offset:4px}
+.contact-card{margin-top:12px;border-radius:16px;padding:16px 20px;grid-template-columns:1.05fr 1fr 1fr}
+.contact-label span{font-size:14px;letter-spacing:0;text-transform:none}.contact-label small{font-size:12px;display:block}
+.contact-card input{font-size:14px;border:1px solid var(--line);height:46px}
+.campaign-alert{margin:16px 0;padding:12px 16px;font-size:14px;border-radius:12px;background:#fff0f2;color:#a50925;box-shadow:none;border:1px solid #f9d8df}
+.campaign-alert strong{margin-right:8px}.campaign-alert.is-disabled{background:#f0f2f6;color:var(--muted);border-color:var(--line)}
+.section-nav{border-radius:14px;box-shadow:0 4px 16px #111b3506;padding:9px;gap:6px;background:#ffffffed;backdrop-filter:blur(12px)}
+.section-nav>span{font-size:12px;padding-left:10px}.nav-pill{font-size:14px;border-radius:9px;padding:9px 15px;font-weight:700}
+.content-section{border-radius:20px;scroll-margin-top:84px;margin-bottom:24px}
+.section-heading{background:#fff;padding:22px 24px;min-height:96px;gap:14px}
+.section-heading::before{display:none}.section-number{background:var(--brand-soft);color:var(--brand);width:44px;height:44px;border-radius:12px;font-size:14px}
+.section-heading h2{font-size:23px;letter-spacing:-.025em;line-height:1.35}.section-heading p{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:0;text-transform:none;margin-bottom:3px}
+.customer-badge{font-size:13px;padding:6px 12px;white-space:normal}
+.data-table th{font-size:13px;text-transform:none;letter-spacing:0;color:#445169;height:65px}.data-table th small{font-size:12px;color:var(--muted);font-weight:500}
+.data-table td{font-size:15px;padding:15px 18px}.data-table tbody tr:nth-child(even){background:#fcfcfd}
+.money-input{background:#fff;border-radius:9px}.money-input input{font-size:16px;font-weight:700}.money-input>span{font-size:14px}.remove-row{color:#67738b;width:28px;height:32px}
+.rate-badge{font-size:16px;min-width:58px;border-radius:9px}.rate-badge.total{box-shadow:none}
+.promo-money{font-size:16px}.promo-money small{font-size:12px}.formula-inline{font-size:13px}.row-counter{font-size:13px}
+.table-footer,.section-actions{padding:16px 24px;background:#fff;gap:16px}.outline-button,.primary-button,.text-button{font-size:14px;min-height:42px}
+.primary-button{background:linear-gradient(110deg,#f2223c,#c90322);box-shadow:0 4px 12px #c9032220}.outline-button{border-color:#e0e3ea;color:#3e4b64}
+.policy-area{padding:24px;background:#fafbfc}.mini-eyebrow{font-size:12px;letter-spacing:.02em}.subheading-row h3{font-size:20px}.subheading-row>span{font-size:13px}
+.policy-card{background:white;border-radius:14px}.policy-card h4{font-size:15px}.policy-table{min-width:430px}.policy-table th,.policy-table td{font-size:13px;padding:11px 14px}.policy-table th{font-size:12px;text-transform:none}
+.installment-inputs>label>span,.metric-card>span{font-size:13px;text-transform:none}.metric-card strong{font-size:23px}.section-note{font-size:13px}.site-footer{font-size:12px;gap:16px}
+.board-controls{display:flex;align-items:center;gap:32px;padding:18px 24px;background:#f9fafc;border-block:1px solid var(--line);flex-wrap:wrap}
+.board-controls label{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;width:250px;font-size:14px;font-weight:600;color:#43516c}
+.board-controls output{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink)}
+.board-controls input{grid-column:1/-1;width:100%;margin:0;accent-color:var(--brand);cursor:ew-resize;height:20px}.board-controls button{margin-left:auto;background:white}
+.resize-hint{font-size:13px;color:var(--muted);margin:14px 24px 0}
+.board-viewport{max-width:100%;overflow:auto;overscroll-behavior-x:contain;padding:24px;background:#f8f9fc;scrollbar-color:#c3c9d5 #f0f2f6;scrollbar-width:thin}
+.promo-board{--board-row-height:124px;position:relative;width:1120px;min-width:980px;max-width:none;margin:0 auto;background:radial-gradient(ellipse at 95% 0,#ffe2e7 0,transparent 42%),linear-gradient(130deg,#fff 38%,#fff1f3);border:1px solid #f2d7dc;border-radius:24px;color:var(--ink);box-shadow:0 16px 42px #9e133113;padding-bottom:8px;isolation:isolate;overflow:hidden}
+.promo-board::after{display:none}.board-topline{padding:26px 32px 0;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--brand);letter-spacing:.09em;height:82px}
+.campaign-logo{width:230px;height:59px;background-size:667.826% 1735.594%;background-position:4.211% 1.658%;background-repeat:no-repeat;mix-blend-mode:multiply}
+.campaign-season{font-size:12px;font-weight:800;letter-spacing:.12em}
+.board-hero{position:relative;display:block;padding:25px 32px 28px;min-height:326px}
+.board-headline{position:relative;z-index:2;width:57%}
+.board-customer{display:inline-block;background:#fff0f2;border:1px solid #fadbe1;border-radius:99px;padding:5px 14px;color:var(--brand);font-size:14px;font-weight:700;line-height:1.4}
+.board-hero .flash-title{color:#e40024;font-size:clamp(48px,5vw,64px);font-weight:800;line-height:1.08;letter-spacing:-.055em;font-style:italic;margin:14px 0 6px}.flash-title span{display:inline-block;vertical-align:top;font-size:54px;margin-left:7px}
+.board-hero h3{color:#0e1731;font-size:46px;line-height:1.19;letter-spacing:-.04em;font-weight:800;margin:0}
+.board-hero .board-date{display:inline-flex;gap:8px;align-items:center;color:#d90a2b;background:#fff4f5;border:1px solid #f4bac6;border-radius:8px;padding:5px 12px;font-size:15px;margin:18px 0 0;font-weight:700;line-height:1.6}
+.board-date svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;flex-shrink:0}
+.campaign-art{position:absolute;right:8px;top:0;width:350px;aspect-ratio:430/420;background-repeat:no-repeat;background-size:357.209% 243.81%;background-position:74.141% 0;mix-blend-mode:multiply;opacity:.97;mask-image:linear-gradient(to right,transparent,black 10%,black 96%,transparent);pointer-events:none;z-index:0}
+.max-offer{position:absolute;right:30%;bottom:48px;z-index:1;min-width:0;text-align:center;border:1px solid #f5cbd3;border-radius:15px;padding:16px 20px 14px;background:#fffffff5;box-shadow:0 8px 22px #d10b2510;transform:rotate(-5deg)}
+.max-offer span{font-size:13px;color:#1d2842;text-transform:uppercase;font-weight:800}.max-offer strong{color:#df0629;font-size:68px;letter-spacing:-.055em;line-height:1.1;margin:2px 0}.max-offer small{font-size:10px;font-weight:600;color:#67718a;display:block}
+.board-table-wrap{margin:0 24px;border:1px solid #f1cad2;border-radius:15px;overflow:visible;box-shadow:0 4px 18px #9e133108;background:white;position:relative;z-index:2}
+.board-table{table-layout:fixed;min-width:0;border-collapse:separate;border-spacing:0;width:100%;font-variant-numeric:tabular-nums}
+.board-table th{position:relative;background:linear-gradient(135deg,#e61130,#ac001b);padding:18px 12px;font-size:14px;font-weight:700;letter-spacing:0;line-height:1.45;text-transform:none;border-right:1px solid #ffffff25}
+.board-table th:first-child{border-radius:14px 0 0 0;padding-left:20px}.board-table th:last-child{border-radius:0 14px 0 0;border:0}
+.board-table th small{font-size:12px;font-weight:500;color:#ffe3e8;line-height:1.5}
+.board-table td{height:var(--board-row-height);padding:16px 12px;border-top:1px solid #f4dfe4;border-right:1px solid #f8e9ed;font-size:16px;font-weight:700;overflow:hidden;vertical-align:middle;line-height:1.6}
+.board-table td:first-child{padding-left:18px}.board-table td:last-child{border-right:0}.board-table tbody tr:nth-child(even){background:#fff7f8}.board-table tbody tr:last-child td:first-child{border-radius:0 0 0 14px}.board-table tbody tr:last-child td:last-child{border-radius:0 0 14px 0}
+.board-table .offer-amount{font-size:21px;line-height:1.45;padding:2px 0;color:#111b3c;font-weight:800;border-bottom:1px dashed transparent;font-variant-numeric:tabular-nums}
+.board-table input:focus{border-bottom-color:var(--brand);background:#fff3f5}.board-table input:hover{border-bottom-color:#ccd1db}.board-table input:focus-visible{outline:2px solid #ee173455;outline-offset:1px}
+.package-fields{display:flex;flex-direction:column;gap:1px;margin-top:4px}.package-fields input{width:100%;font-size:12px;color:#67738a;line-height:1.5;padding:1px 0;border-bottom-color:transparent}.package-fields input:first-child{font-weight:600;color:#4f5d76}
+.board-table .remove-row{width:24px;opacity:.35}.board-table tr:hover .remove-row,.board-table .remove-row:focus-visible{opacity:1}
+.board-rate{display:inline-flex;min-width:64px;align-items:center;justify-content:center;border-radius:9px;padding:2px 10px;font-size:19px;font-weight:800;white-space:nowrap;line-height:1.6}
+.board-rate.regular{background:#eef0f6;color:#263352}.board-rate.flash{background:#ffe9ee;color:#e0062e}.board-rate.total{background:linear-gradient(135deg,#f3253f,#c40020);color:white;min-width:76px;box-shadow:0 4px 10px #e3102b17;font-size:23px;padding:3px 12px}
+.board-money{display:block;margin-top:7px;font-size:14px;font-weight:600;white-space:nowrap}.board-table .flash-value{color:#c9082d}.board-table .total-value{color:#067749;font-size:20px;white-space:nowrap}.board-table .total-value::first-letter{font-variant-numeric:tabular-nums}
+.column-resizer{position:absolute;right:-7px;top:0;bottom:0;z-index:5;width:14px;cursor:col-resize;touch-action:none}.column-resizer::after{content:"";position:absolute;width:3px;height:26px;top:50%;left:5px;transform:translateY(-50%);border-radius:3px;background:#ffffff55}.column-resizer:hover::after,.column-resizer:focus::after{background:white}.column-resizer:focus-visible{outline:2px solid #fec65c;outline-offset:-3px}
+.board-details{display:flex;align-items:center;gap:24px;padding:24px 30px 16px;position:relative;z-index:2}.board-details>div{display:flex;gap:12px;align-items:center;font-size:12px;line-height:1.5;color:#5e687e}.board-details strong{display:block;color:#26324d;font-size:13px;font-weight:700}.detail-icon{height:42px;width:42px;border-radius:50%;background:#ffe8ee;display:grid;place-items:center;color:#dd0830;font-size:22px;font-weight:800}
+.board-details .board-contact-block{margin-left:auto;background:linear-gradient(120deg,#ed1437,#be0027);border-radius:12px;padding:11px 18px;display:block;color:#fff0f3;max-width:40%;min-width:230px;overflow-wrap:anywhere;box-shadow:0 5px 12px #d6062b14;font-size:11px}.board-contact-block strong{color:white;font-size:14px}
+.board-footnote{font-size:11px;color:#788198;padding:0 32px 16px}
+.board-resizer{position:absolute;right:2px;bottom:2px;z-index:5;width:30px;height:30px;border:0;background:#ffe5ec;color:#b7052a;border-radius:9px 0 18px 0;font-size:25px;cursor:nwse-resize;touch-action:none;line-height:1}
+body.is-resizing{user-select:none;cursor:col-resize}.toast{font-size:14px}.board-viewport:focus-visible{outline:2px solid #ed1734;outline-offset:-3px}
+@media(min-width:1300px){.board-hero .flash-title{font-size:64px}}
+@media(max-width:1050px){.setup-grid{grid-template-columns:1fr 1fr}.setup-grid .setup-card:last-child{grid-column:1/-1;min-height:auto}.board-controls{gap:20px}.board-controls label{width:calc(50% - 10px)}.board-controls button{margin-left:0}.hero{display:block}}
+@media(max-width:760px){.page-shell{width:calc(100% - 24px);padding-top:22px}.hero h1{font-size:30px}.hero-copy{font-size:14px}.setup-grid,.contact-card{grid-template-columns:1fr}.setup-grid .setup-card:last-child{grid-column:auto}.setup-card{min-height:auto;padding:16px}.contact-label{grid-column:auto}.section-nav{margin-inline:0;top:5px}.content-section{margin-inline:0;border-radius:16px}.section-heading{padding:18px 16px;align-items:flex-start;gap:12px;min-height:0}.section-heading h2{font-size:20px}.section-heading p{font-size:12px}.section-number{width:36px;height:36px;font-size:13px}.section-heading .customer-badge{display:none}.campaign-alert{font-size:13px}.campaign-alert strong{display:block}.policy-grid{grid-template-columns:1fr}.table-footer,.section-actions{padding:14px 16px}.board-controls{padding:16px;gap:16px}.board-controls label{width:100%}.resize-hint{margin:12px 16px 0;font-size:12px}.board-viewport{padding:16px}.promo-board{border-radius:20px;margin:0}.board-topline{padding:26px 32px 0}.board-hero{padding:25px 32px 28px;min-height:326px}.board-hero h3{font-size:46px}.board-hero .flash-title{font-size:64px}.max-offer{min-width:0}.max-offer strong{font-size:68px}.board-table-wrap{margin:0 24px}.installment-inputs{grid-template-columns:1fr 1fr}.installment-inputs>label{grid-column:1/-1}.site-footer{font-size:12px}.contact-card input,.select-wrap select{font-size:16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+.eyebrow>svg,.alert-icon svg{width:20px;height:20px;fill:currentColor;vertical-align:middle}.eyebrow>svg{margin-right:5px}.flash-title>svg{width:38px;height:52px;fill:currentColor;vertical-align:top;margin-left:12px}.detail-icon svg{width:24px;height:24px;fill:currentColor}
+
+/* Self-contained artwork replaces unavailable assets from the reference site. */
+.campaign-logo { width:260px; height:auto; background:none; mix-blend-mode:normal; text-transform:none; letter-spacing:-.04em; line-height:1.2; }
+.campaign-logo strong { display:block; font-size:24px; color:#cf0725; }
+.campaign-logo small { display:block; margin-top:4px; font-size:12px; font-weight:600; color:#526078; letter-spacing:0; }
+.campaign-art { top:0; right:20px; width:350px; height:326px; background-size:contain; background-position:center; mask-image:none; mix-blend-mode:normal; }
+.policy-table th small { display:block; margin-top:4px; font-size:10px; font-weight:400; white-space:nowrap; }
+.no-script { margin:20px; padding:20px; border:1px solid #f4bac6; background:#fff0f2; color:#a60018; }
+
+</style>
+  </head>
+  <body>
+    <img id="campaignAsset" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNTAiIGhlaWdodD0iMzI2IiB2aWV3Qm94PSIwIDAgMzUwIDMyNiI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdvbGQiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZmZmMWFlIi8+PHN0b3Agb2Zmc2V0PSIuNSIgc3RvcC1jb2xvcj0iI2ZmYzg0YyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2UzOWExNiIvPjwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InJlZCIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNmNDUxNjciLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNjNjAwMjciLz48L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJwaW5rIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iI2Y5YWNiOSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZjBmMyIvPjwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxjaXJjbGUgY3g9IjE5MyIgY3k9IjE2NCIgcj0iMTM5IiBmaWxsPSIjZmZlNWViIi8+CiAgPGNpcmNsZSBjeD0iMTkzIiBjeT0iMTY0IiByPSIxMTUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZjhmYSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtZGFzaGFycmF5PSI1IDkiLz4KICA8ZWxsaXBzZSBjeD0iMTk4IiBjeT0iMjg3IiByeD0iMTM3IiByeT0iMTUiIGZpbGw9IiNkOTBhMmIiIG9wYWNpdHk9Ii4wOCIvPgogIDxyZWN0IHg9IjEyNSIgeT0iMTk5IiB3aWR0aD0iNDMiIGhlaWdodD0iNzkiIHJ4PSI4IiBmaWxsPSJ1cmwoI3BpbmspIi8+CiAgPHJlY3QgeD0iMTg0IiB5PSIxNDciIHdpZHRoPSI0MyIgaGVpZ2h0PSIxMzEiIHJ4PSI4IiBmaWxsPSJ1cmwoI3BpbmspIi8+CiAgPHJlY3QgeD0iMjQzIiB5PSI5MiIgd2lkdGg9IjQzIiBoZWlnaHQ9IjE4NiIgcng9IjgiIGZpbGw9InVybCgjcmVkKSIvPgogIDxwYXRoIGQ9Ik05MSAxODMgMTQ3IDEzMiAxOTEgMTUxIDI1NCA3NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI3JlZCkiIHN0cm9rZS13aWR0aD0iMTciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxwYXRoIGQ9Im0yMjAgNzYgNDgtMTEtNiA0OSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDkwNjJkIiBzdHJva2Utd2lkdGg9IjE2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICA8ZyB0cmFuc2Zvcm09InJvdGF0ZSgtMTYgMTEzIDIyNikiPgogICAgPGNpcmNsZSBjeD0iMTEzIiBjeT0iMjI2IiByPSI1MCIgZmlsbD0iI2RhOTQxZCIvPgogICAgPGNpcmNsZSBjeD0iMTA4IiBjeT0iMjIxIiByPSI1MCIgZmlsbD0idXJsKCNnb2xkKSIgc3Ryb2tlPSIjZjViZDQ2IiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDxjaXJjbGUgY3g9IjEwOCIgY3k9IjIyMSIgcj0iMzkiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZjBiMiIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgICA8cGF0aCBkPSJtOTQgMjM4IDI4LTM0IiBzdHJva2U9IiNhZjZkMDAiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICA8Y2lyY2xlIGN4PSI5NCIgY3k9IjIwNyIgcj0iNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYWY2ZDAwIiBzdHJva2Utd2lkdGg9IjUiLz4KICAgIDxjaXJjbGUgY3g9IjEyMiIgY3k9IjIzNSIgcj0iNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYWY2ZDAwIiBzdHJva2Utd2lkdGg9IjUiLz4KICA8L2c+CiAgPHBhdGggZD0ibTMwNiAxNjYgNCAxMCAxMSA0LTExIDQtNCAxMC00LTEwLTExLTQgMTEtNHpNOTUgNzVsMyA4IDggMy04IDMtMyA4LTMtOC04LTMgOC0zeiIgZmlsbD0iI2UxYTUyOSIvPgogIDxjaXJjbGUgY3g9IjI5NiIgY3k9IjU5IiByPSI1IiBmaWxsPSIjZWU3ZTkyIi8+Cjwvc3ZnPgo=" hidden alt="" aria-hidden="true" />
+    <noscript><p class="no-script">Vui lòng bật JavaScript để sử dụng công cụ tính ưu đãi và tải bảng PNG.</p></noscript>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg> Công cụ tư vấn khuyến mãi · <span data-bonus-label>Ontop</span></p>
+        <h1 id="pageHeading">Tư vấn ưu đãi tháng 10</h1>
+        <p class="hero-copy">
+          Khuyến mãi từ <strong id="campaignPeriod">12/10/2026 – 16/10/2026</strong>. Tổng ưu đãi bằng ưu đãi thường cộng
+          <span data-bonus-label>Ontop</span> và được tính trên giá trị chưa VAT.
+        </p>
+      </header>
+
+      <main>
+        <section class="setup-grid" aria-label="Thiết lập công cụ">
+          <article class="setup-card">
+            <p class="field-label">Đối tượng khách hàng</p>
+            <div class="segmented" id="customerSwitcher" role="group" aria-label="Đối tượng khách hàng">
+              <button class="segment" type="button" data-customer="personal" aria-pressed="false">
+                <span aria-hidden="true">♙</span> Cá nhân
+              </button>
+              <button class="segment is-active" type="button" data-customer="business" aria-pressed="true">
+                <span aria-hidden="true">▦</span> Doanh nghiệp
+              </button>
+            </div>
+          </article>
+
+          <article class="setup-card">
+            <label class="field-label" for="bankSelect">Ngân hàng trả góp</label>
+            <div class="select-wrap">
+              <select id="bankSelect" aria-label="Ngân hàng trả góp"></select>
+            </div>
+          </article>
+
+          <article class="setup-card">
+            <p class="field-label">Chương trình áp dụng</p>
+            <label class="check-control">
+              <input id="flashToggle" type="checkbox" checked />
+              <span class="check-box" aria-hidden="true"></span>
+              <span id="toggleCampaignLabel">Ontop 12/10–16/10</span>
+            </label>
+            <p class="field-hint">Bỏ chọn để chỉ tính ưu đãi thường.</p>
+          </article>
+        </section>
+
+        <section class="contact-card" aria-label="Thông tin liên hệ trên ảnh tải xuống">
+          <div class="contact-label">
+            <span>Liên hệ ngay</span>
+            <small>Thông tin này sẽ xuất hiện trên ảnh PNG</small>
+          </div>
+          <label>
+            <span class="sr-only">Số điện thoại</span>
+            <input id="advisorPhone" type="tel" inputmode="tel" placeholder="Số điện thoại (VD: 0966 835 825)" />
+          </label>
+          <label>
+            <span class="sr-only">Tên tư vấn viên</span>
+            <input id="advisorName" type="text" placeholder="Tên tư vấn viên" />
+          </label>
+        </section>
+
+        <aside class="campaign-alert" id="campaignAlert" aria-label="Thông báo chương trình">
+          <span class="alert-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg></span>
+          <p>
+            <strong id="campaignName">Nạp tiền hôm nay – Nhận thêm tới 40% ưu đãi</strong>
+            <span id="campaignStatus">Đang tính ưu đãi thường + Ontop.</span>
+          </p>
+        </aside>
+
+        <nav class="section-nav" aria-label="Đi đến phân mục">
+          <span>Hiển thị mục:</span>
+          <button type="button" data-scroll="calculator" class="nav-pill is-active">1 · Tra cứu khuyến mãi</button>
+          <button type="button" data-scroll="offerBoard" class="nav-pill">2 · Bảng phương án</button>
+          <button type="button" data-scroll="installment" class="nav-pill">3 · Trả góp ngân hàng</button>
+        </nav>
+
+        <section class="content-section" id="calculator">
+          <header class="section-heading">
+            <span class="section-number">01</span>
+            <div>
+              <p>Tính tự động theo chính sách</p>
+              <h2>Tra cứu khuyến mãi theo số tiền nạp</h2>
+            </div>
+            <span class="customer-badge" data-customer-label>Khách hàng doanh nghiệp</span>
+          </header>
+
+          <div class="table-scroll">
+            <table class="data-table lookup-table">
+              <thead>
+                <tr>
+                  <th>Số tiền nạp <small>(gồm VAT)</small></th>
+                  <th>Ưu đãi thường <small>HSD 180 ngày</small></th>
+                  <th><span id="lookupBonusHeading">Ontop 12/10–16/10</span> <small>HSD 90 ngày</small></th>
+                  <th>Tổng ưu đãi</th>
+                  <th>Tiền khuyến mãi</th>
+                </tr>
+              </thead>
+              <tbody id="lookupRows"></tbody>
+            </table>
+          </div>
+          <footer class="table-footer">
+            <button class="outline-button" id="addLookupRow" type="button"><span>＋</span> Thêm số tiền</button>
+            <span class="row-counter" id="lookupCounter">3/10 dòng</span>
+            <p class="formula-inline">Tiền KM = (Số tiền nạp ÷ 1,08) × Tổng tỷ lệ ưu đãi.</p>
+          </footer>
+
+          <div class="policy-area">
+            <div class="subheading-row">
+              <div>
+                <p class="mini-eyebrow">Chính sách đã đối chiếu</p>
+                <h3>Bảng tỷ lệ khuyến mãi</h3>
+              </div>
+              <span>Đơn vị: %</span>
+            </div>
+            <div class="policy-grid" id="policyGrid"></div>
+          </div>
+        </section>
+
+        <section class="content-section" id="offerBoard">
+          <header class="section-heading">
+            <span class="section-number">02</span>
+            <div>
+              <p>Mỗi dòng là một lựa chọn độc lập</p>
+              <h2>Bảng phương án ưu đãi</h2>
+            </div>
+            <span class="customer-badge" data-customer-label>Khách hàng doanh nghiệp</span>
+          </header>
+
+          <div class="section-actions">
+            <div class="inline-actions">
+              <button class="text-button" id="addOfferRow" type="button"><span>＋</span> Thêm số tiền</button>
+              <span class="row-counter" id="offerCounter">3/10 dòng</span>
+            </div>
+            <button class="primary-button" id="downloadPng" type="button">
+              <span aria-hidden="true">⇩</span> Tải bảng (.PNG)
+            </button>
+          </div>
+
+          <div class="board-controls" aria-label="Điều chỉnh kích thước bảng phương án">
+            <label for="boardWidth">Chiều rộng <output id="boardWidthValue">1.120 px</output>
+              <input id="boardWidth" type="range" min="980" max="1600" step="10" value="1120" />
+            </label>
+            <label for="boardRowHeight">Giãn dòng <output id="boardRowHeightValue">124 px</output>
+              <input id="boardRowHeight" type="range" min="110" max="180" step="2" value="124" />
+            </label>
+            <button class="outline-button" id="resetBoardSize" type="button">Đặt lại kích thước</button>
+          </div>
+          <p class="resize-hint" id="resizeHint">Kéo mép giữa các cột để chỉnh độ rộng. Kéo góc dưới bên phải để giãn bảng. Kích thước được áp dụng khi tải PNG.</p>
+          <div class="board-viewport" tabindex="0" role="region" aria-label="Bảng phương án — cuộn ngang để xem đầy đủ" aria-describedby="resizeHint">
+          <div class="promo-board" id="promoBoard">
+            <div class="board-topline">
+              <div class="campaign-logo"><strong>Batdongsan.com.vn</strong><small>by PropertyGuru</small></div>
+              <span class="campaign-season">ƯU ĐÃI THÁNG 10 / 2026</span>
+            </div>
+            <div class="board-hero">
+              <div class="board-headline">
+                <span class="board-customer" data-customer-label>Khách hàng doanh nghiệp</span>
+                <p class="flash-title" id="boardCampaignTitle">ƯU ĐÃI<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg></p>
+                <h3 id="boardCampaignHeadline"><span id="boardHeadlineMain">Nạp tiền hôm nay</span><br /><span id="boardHeadlineBenefit" style="font-size:34px">Nhận thêm tới 40% ưu đãi</span></h3>
+                <p class="board-date" id="boardCampaignDate"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18M8 15h2m4 0h2m-8 3h2"/></svg><span id="boardDateText">12/10 – 16/10/2026</span></p>
+              </div>
+              <div class="campaign-art" role="img" aria-hidden="true"></div>
+              <div class="max-offer"><span>Tổng ưu đãi đến</span><strong id="maxOfferValue">40%</strong><small>Ưu đãi thường + Ontop</small></div>
+            </div>
+            <div class="board-table-wrap">
+              <table class="board-table">
+                <colgroup id="offerColumns"><col style="width:28%"/><col style="width:19%"/><col style="width:19%"/><col style="width:15%"/><col style="width:19%"/></colgroup>
+                <thead><tr>
+                  <th scope="col">Giá trị HĐ <small>(gồm VAT)</small><span class="column-resizer" role="separator" tabindex="0" aria-orientation="vertical" aria-label="Độ rộng cột Giá trị HĐ" data-column="0"></span></th>
+                  <th scope="col">Ưu đãi thường <small>HSD 180 ngày</small><span class="column-resizer" role="separator" tabindex="0" aria-orientation="vertical" aria-label="Độ rộng cột Ưu đãi thường" data-column="1"></span></th>
+                  <th scope="col"><span data-bonus-label>Ontop</span> <small id="boardBonusPeriod">12/10–16/10 · HSD 90 ngày</small><span class="column-resizer" role="separator" tabindex="0" aria-orientation="vertical" aria-label="Độ rộng cột Ontop" data-column="2"></span></th>
+                  <th scope="col">Tổng %<br/>khuyến mãi<span class="column-resizer" role="separator" tabindex="0" aria-orientation="vertical" aria-label="Độ rộng cột Tổng % khuyến mãi" data-column="3"></span></th>
+                  <th scope="col">Tổng tiền KM <small>Trên giá chưa VAT</small></th>
+                </tr></thead>
+                <tbody id="offerRows"></tbody>
+              </table>
+            </div>
+            <div class="board-details">
+              <div><span class="detail-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Ưu đãi thường<strong>Sử dụng trong 180 ngày</strong></span></div>
+              <div><span class="detail-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg></span><span><span data-bonus-label>Ontop</span><strong>Sử dụng trong 90 ngày</strong></span></div>
+              <div class="board-contact-block"><span>Liên hệ tư vấn</span><strong id="boardContact">Chọn phương án phù hợp với bạn</strong></div>
+            </div>
+            <div class="board-footnote">Tiền KM = (Giá trị HĐ ÷ 1,08) × Tổng % khuyến mãi. Mức ưu đãi thay đổi theo giá trị HĐ.</div>
+            <button class="board-resizer" id="boardResizeHandle" type="button" aria-label="Kéo giãn bảng phương án; phím trái phải chỉnh chiều rộng, lên xuống chỉnh giãn dòng" title="Kéo giãn bảng">⤡</button>
+          </div>
+          </div>
+        </section>
+
+        <section class="content-section" id="installment">
+          <header class="section-heading">
+            <span class="section-number">03</span>
+            <div>
+              <p>So sánh theo 4 kỳ hạn</p>
+              <h2>Trả góp ngân hàng — lợi ích ròng & góp/tháng</h2>
+            </div>
+          </header>
+
+          <div class="installment-inputs">
+            <label>
+              <span>Số tiền trả góp</span>
+              <div class="money-input compact">
+                <input id="installmentAmount" inputmode="numeric" value="20.000.000" aria-label="Số tiền trả góp" />
+                <span>đ</span>
+              </div>
+            </label>
+            <div class="metric-card">
+              <span>Tổng tỷ lệ KM</span>
+              <strong id="installmentRate">33%</strong>
+            </div>
+            <div class="metric-card green">
+              <span>Tiền KM nhận</span>
+              <strong id="installmentPromo">6.111.111đ</strong>
+            </div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="data-table installment-table">
+              <thead>
+                <tr>
+                  <th>Kỳ hạn</th>
+                  <th id="bankRateHeading">Phí ACB</th>
+                  <th>Tiền phí phải trả</th>
+                  <th>Tiền KM nhận</th>
+                  <th>Lợi ích ròng</th>
+                  <th>Góp/tháng (ước tính)</th>
+                </tr>
+              </thead>
+              <tbody id="installmentRows"></tbody>
+            </table>
+          </div>
+          <p class="section-note" id="bankNotice"></p>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span id="footerCampaign">Công cụ khuyến mãi · Tháng 10/2026</span>
+        <span>Tính trực tiếp trên trình duyệt · Không lưu dữ liệu khách hàng</span>
+      </footer>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <!-- All-in-one: no external JS, CSS, fonts or images required. -->
+    <script>
+const VAT_RATE = 0.08;
+const MAX_ROWS = 10;
+
+const CAMPAIGN = Object.freeze({
+  name: "Nạp tiền hôm nay – Nhận thêm tới 36% ưu đãi",
+  headline: ["Nạp tiền hôm nay", "Nhận thêm tới 36% ưu đãi"],
+  start: "12/10/2026",
+  end: "16/10/2026",
+  short: "12–16/10",
+  period: "12/10 – 16/10/2026",
+  month: "10",
+  year: "2026",
+  bonusLabel: "Ontop",
+  bannerLabel: "ƯU ĐÃI",
+});
+
+// Business rates: assets/business-policy-october.png supplied by the user.
+// Campaign dates and VAT retain the October reference website settings.
+// The supplied rate image does not specify exact start/end dates.
+const CAMPAIGNS = Object.freeze({
+  personal: CAMPAIGN,
+  business: Object.freeze({
+    ...CAMPAIGN,
+    name: "Ưu đãi doanh nghiệp tháng 10 lên đến 40%",
+    headline: ["Nạp tiền hôm nay", "Nhận thêm tới 40% ưu đãi"],
+  }),
+});
+
+const CUSTOMER_LABELS = Object.freeze({
+  personal: "Khách hàng cá nhân",
+  business: "Khách hàng doanh nghiệp",
+});
+
+const TIERS = Object.freeze({
+  personal: [
+    { label: "500.000 – < 1 triệu", min: 500_000, max: 1_000_000, regular: 0, flash: 0 },
+    { label: "1 – < 2 triệu", min: 1_000_000, max: 2_000_000, regular: 0, flash: 18 },
+    { label: "2 – < 3 triệu", min: 2_000_000, max: 3_000_000, regular: 2, flash: 18 },
+    { label: "3 – < 5 triệu", min: 3_000_000, max: 5_000_000, regular: 2, flash: 22 },
+    { label: "5 – < 10 triệu", min: 5_000_000, max: 10_000_000, regular: 4, flash: 24 },
+    { label: "10 – < 20 triệu", min: 10_000_000, max: 20_000_000, regular: 6, flash: 24 },
+    { label: "20 – < 50 triệu", min: 20_000_000, max: 50_000_000, regular: 8, flash: 26 },
+    { label: "≥ 50 triệu", min: 50_000_000, max: null, regular: 10, flash: 26 },
+  ],
+  business: [
+    { label: "500.000 – < 1 triệu", min: 500_000, max: 1_000_000, regular: 0, flash: 0 },
+    { label: "1 – < 3 triệu", min: 1_000_000, max: 3_000_000, regular: 0, flash: 18 },
+    { label: "3 – < 5 triệu", min: 3_000_000, max: 5_000_000, regular: 0, flash: 22 },
+    { label: "5 – < 10 triệu", min: 5_000_000, max: 10_000_000, regular: 0, flash: 24 },
+    { label: "10 – < 20 triệu", min: 10_000_000, max: 20_000_000, regular: 5, flash: 24 },
+    { label: "20 – < 50 triệu", min: 20_000_000, max: 50_000_000, regular: 7, flash: 26 },
+    { label: "50 – < 100 triệu", min: 50_000_000, max: 100_000_000, regular: 10, flash: 26 },
+    { label: "100 – < 300 triệu", min: 100_000_000, max: 300_000_000, regular: 12, flash: 26 },
+    { label: "≥ 300 triệu", min: 300_000_000, max: null, regular: 14, flash: 26 },
+  ],
+});
+
+const BANKS = Object.freeze([
+  { name: "ACB", rates: [2.1, 3.6, 5.1, 6.6] },
+  { name: "BIDV", rates: [2.1, 3.5, 4.4, 5.6] },
+  { name: "UOB/Citibank", rates: [3, 4, 6, 7] },
+  { name: "Eximbank", rates: [1.8, 3.5, 4.6, 6.5] },
+  { name: "HD Bank", rates: [2.4, 2.9, 4.5, 4.9], restricted: true },
+  { name: "HomeCredit", rates: [3.9, 5, 7, 8], restricted: true },
+  { name: "HSBC", rates: [2.5, 4.1, 5.5, 7.2] },
+  { name: "KienLong", rates: [1.65, 2.7, 3.75, 5] },
+  { name: "LPB", rates: [1.6, 2.7, 3.5, 4.1] },
+  { name: "Maritime Bank", rates: [1.6, 2.6, 3.6, 4.6], restricted: true },
+  { name: "MBBank", rates: [2.6, 3.6, 5.2, 5.4] },
+  { name: "mCredit", rates: [1.92, 2.25, 3.57, null], restricted: true },
+  { name: "Nam Á", rates: [null, 1.9, 2.2, 3.1] },
+  { name: "OCB", rates: [1.8, 2.1, 2.6, 3.1] },
+  { name: "PVComBank", rates: [1.6, 2.4, 3.6, 4.6] },
+  { name: "Sacombank", rates: [2.5, 4.4, 6.4, 8.3] },
+  { name: "SCB", rates: [2.14, 3.24, 4.2, 5.3] },
+  { name: "SeaBank", rates: [1.9, 2.8, 4.6, 5.6] },
+  { name: "SHB", rates: [1.8, 2, 3.1, 4.1] },
+  { name: "Shinhan Bank", rates: [null, 3.1, 3.6, 4.6] },
+  { name: "Standard Chartered", rates: [2.25, 3.35, 4.45, 6.1] },
+  { name: "Techcombank", rates: [2.8, 3.76, 5.2, 6.06] },
+  { name: "TPBank", rates: [2.25, 3.9, 5.22, 6.65] },
+  { name: "VIB", rates: [3.25, 3.9, 5.55, 6.65] },
+  { name: "BVBank", rates: [3, 4, 6, 7] },
+  { name: "Vietcombank", rates: [3.25, 4.9, 6, 7.65] },
+  { name: "VietinBank", rates: [2.1, 3.1, 4.5, 6] },
+  { name: "VPBank", rates: [2.79, 2.8, null, 7.2] },
+  { name: "Lotte Finance", rates: [1.81, 2.47, 3.57, 4.56] },
+  { name: "Shinhan Finance", rates: [1.6, 3.1, 3.6, 4.6] },
+  { name: "WooriBank", rates: [1.6, 2.1, 3.1, 3.6] },
+  { name: "NCB", rates: [2.5, 4.2, 5.8, 7.5] },
+  { name: "VietBank", rates: [2, 2.7, 4.2, 5.6] },
+]);
+
+const INSTALLMENT_TERMS = Object.freeze([3, 6, 9, 12]);
+
+function parseMoney(value) {
+  const digits = String(value ?? "").replace(/\D/g, "");
+  return digits ? Number.parseInt(digits, 10) : 0;
+}
+
+function formatMoney(value, suffix = "đ") {
+  const rounded = Math.round(Number(value) || 0);
+  return `${rounded.toLocaleString("vi-VN")}${suffix}`;
+}
+
+function formatInputMoney(value) {
+  const number = Number(value) || 0;
+  return number ? Math.round(number).toLocaleString("vi-VN") : "";
+}
+
+function findTier(customer, amount) {
+  const safeCustomer = TIERS[customer] ? customer : "personal";
+  const safeAmount = Number(amount) || 0;
+  return (
+    TIERS[safeCustomer].find(
+      (tier) => safeAmount >= tier.min && (tier.max === null || safeAmount < tier.max),
+    ) ?? null
+  );
+}
+
+function calculatePromotion(customer, amount, includeFlash = true) {
+  const safeAmount = Math.max(0, Number(amount) || 0);
+  const tier = findTier(customer, safeAmount);
+  const regularRate = tier?.regular ?? 0;
+  const flashRate = includeFlash ? (tier?.flash ?? 0) : 0;
+  const totalRate = regularRate + flashRate;
+  const beforeVat = safeAmount / (1 + VAT_RATE);
+  const regularMoney = Math.round((beforeVat * regularRate) / 100);
+  const flashMoney = Math.round((beforeVat * flashRate) / 100);
+  const totalPromo = Math.round((beforeVat * totalRate) / 100);
+
+  return {
+    amount: safeAmount,
+    tier,
+    beforeVat,
+    regularRate,
+    flashRate,
+    totalRate,
+    regularMoney,
+    flashMoney,
+    totalPromo,
+  };
+}
+
+function calculateInstallment(amount, feeRate, months, promoMoney) {
+  if (feeRate === null || feeRate === undefined) return null;
+  const safeAmount = Math.max(0, Number(amount) || 0);
+  const fee = Math.round((safeAmount * feeRate) / 100);
+  const monthly = Math.round((safeAmount + fee) / months);
+  const netBenefit = Math.round((Number(promoMoney) || 0) - fee);
+  return { fee, monthly, netBenefit };
+}
+
+
+function createId() {
+  return globalThis.crypto?.randomUUID?.() ?? `row-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+}
+
+const state = {
+  customer: "business",
+  includeFlash: true,
+  bankIndex: 0,
+  rows: [
+    { id: createId(), amount: 5_000_000, packageName: "Gói Khởi động", packageDetail: "Phương án 5 triệu" },
+    { id: createId(), amount: 20_000_000, packageName: "Gói Bứt phá", packageDetail: "Phương án 20 triệu" },
+    { id: createId(), amount: 50_000_000, packageName: "Gói Dẫn đầu", packageDetail: "Phương án 50 triệu" },
+  ],
+};
+
+const els = {
+  customerSwitcher: document.querySelector("#customerSwitcher"),
+  bankSelect: document.querySelector("#bankSelect"),
+  flashToggle: document.querySelector("#flashToggle"),
+  advisorPhone: document.querySelector("#advisorPhone"),
+  advisorName: document.querySelector("#advisorName"),
+  boardContact: document.querySelector("#boardContact"),
+  lookupRows: document.querySelector("#lookupRows"),
+  offerRows: document.querySelector("#offerRows"),
+  lookupCounter: document.querySelector("#lookupCounter"),
+  offerCounter: document.querySelector("#offerCounter"),
+  addLookupRow: document.querySelector("#addLookupRow"),
+  addOfferRow: document.querySelector("#addOfferRow"),
+  policyGrid: document.querySelector("#policyGrid"),
+  maxOfferValue: document.querySelector("#maxOfferValue"),
+  installmentAmount: document.querySelector("#installmentAmount"),
+  installmentRate: document.querySelector("#installmentRate"),
+  installmentPromo: document.querySelector("#installmentPromo"),
+  installmentRows: document.querySelector("#installmentRows"),
+  bankRateHeading: document.querySelector("#bankRateHeading"),
+  bankNotice: document.querySelector("#bankNotice"),
+  downloadPng: document.querySelector("#downloadPng"),
+  toast: document.querySelector("#toast"),
+};
+
+let toastTimer;
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function showToast(message) {
+  window.clearTimeout(toastTimer);
+  els.toast.textContent = message;
+  els.toast.classList.add("is-visible");
+  toastTimer = window.setTimeout(() => els.toast.classList.remove("is-visible"), 2600);
+}
+
+function renderBankOptions() {
+  els.bankSelect.innerHTML = BANKS.map(
+    (bank, index) =>
+      `<option value="${index}">${escapeHtml(bank.name)}${bank.restricted ? " (*) — hạn chế tư vấn" : ""}</option>`,
+  ).join("");
+  els.bankSelect.value = String(state.bankIndex);
+}
+
+function renderCustomerState() {
+  const campaign = CAMPAIGNS[state.customer];
+  document.querySelectorAll("[data-customer]").forEach((button) => {
+    const active = button.dataset.customer === state.customer;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+
+  document.querySelectorAll("[data-customer-label]").forEach((element) => {
+    element.textContent = CUSTOMER_LABELS[state.customer];
+  });
+
+  document.title = campaign.name;
+  document.querySelector('#pageHeading').textContent = `Tư vấn ưu đãi tháng ${campaign.month}`;
+  document.querySelector('#campaignPeriod').textContent = `${campaign.start} – ${campaign.end}`;
+  document.querySelector('#campaignName').textContent = campaign.name;
+  document.querySelectorAll('[data-bonus-label]').forEach(element => { element.textContent = campaign.bonusLabel; });
+  document.querySelector('#toggleCampaignLabel').textContent = `${campaign.bonusLabel} ${campaign.short}`;
+  document.querySelector('#lookupBonusHeading').textContent = `${campaign.bonusLabel} ${campaign.short}`;
+  document.querySelector('.campaign-season').textContent = `ƯU ĐÃI THÁNG ${campaign.month} / ${campaign.year}`;
+  document.querySelector('#boardHeadlineMain').textContent = campaign.headline[0];
+  const maxTier = TIERS[state.customer].at(-1);
+  const maxRate = maxTier.regular + (state.includeFlash ? maxTier.flash : 0);
+  document.querySelector('#boardHeadlineBenefit').textContent = `Nhận thêm tới ${maxRate}% ưu đãi`;
+  document.querySelector('#boardHeadlineBenefit').style.fontSize = '34px';
+  document.querySelector('#boardDateText').textContent = campaign.period;
+  document.querySelector('#boardBonusPeriod').textContent = `${campaign.short} · HSD 90 ngày`;
+  document.querySelector('.column-resizer[data-column="2"]').setAttribute('aria-label', `Độ rộng cột ${campaign.bonusLabel}`);
+  document.querySelector('#footerCampaign').textContent = `Công cụ khuyến mãi · Tháng ${campaign.month}/${campaign.year}`;
+  document.querySelector("#boardCampaignTitle").innerHTML = state.includeFlash ? `${escapeHtml(campaign.bannerLabel)}<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg>` : 'ƯU ĐÃI THƯỜNG';
+  document.querySelector("#boardCampaignDate").style.visibility = state.includeFlash ? "visible" : "hidden";
+  document.querySelector(".max-offer small").textContent = state.includeFlash ? `Ưu đãi thường + ${campaign.bonusLabel}` : "Chỉ tính ưu đãi thường";
+  const status = state.includeFlash ? `Đang tính ưu đãi thường + ${campaign.bonusLabel}.` : `Đã tắt ${campaign.bonusLabel}. Chỉ tính ưu đãi thường.`;
+  document.querySelector("#campaignStatus").textContent = status;
+  document.querySelector('#campaignName').textContent = state.includeFlash ? campaign.name : `Ưu đãi thường dành cho ${CUSTOMER_LABELS[state.customer].toLowerCase()}`;
+  document.querySelector("#campaignAlert").classList.toggle("is-disabled", !state.includeFlash);
+  els.maxOfferValue.textContent = `${maxRate}%`;
+}
+
+function createLookupRow(row, index) {
+  const calculation = calculatePromotion(state.customer, row.amount, state.includeFlash);
+  return `
+    <tr data-row-id="${row.id}">
+      <td>
+        <div class="amount-control">
+          <label class="money-input">
+            <span class="sr-only">Số tiền phương án ${index + 1}</span>
+            <input class="lookup-amount" inputmode="numeric" value="${formatInputMoney(row.amount)}" data-action="amount" />
+            <span>đ</span>
+          </label>
+          <button class="remove-row" type="button" data-action="remove" aria-label="Xóa dòng ${index + 1}">×</button>
+        </div>
+      </td>
+      <td><span class="rate-badge">${calculation.regularRate}%</span></td>
+      <td><span class="rate-badge flash">${calculation.flashRate ? `+${calculation.flashRate}%` : "0%"}</span></td>
+      <td><span class="rate-badge total">${calculation.totalRate}%</span></td>
+      <td><span class="promo-money">+${formatMoney(calculation.totalPromo)}<small>trên giá chưa VAT</small></span></td>
+    </tr>
+  `;
+}
+
+function createOfferRow(row, index) {
+  const calculation = calculatePromotion(state.customer, row.amount, state.includeFlash);
+  return `
+    <tr data-row-id="${row.id}">
+      <td>
+        <div class="amount-control">
+          <div style="min-width:0;flex:1">
+            <input class="offer-amount" inputmode="numeric" value="${formatInputMoney(row.amount)}" data-action="amount" aria-label="Giá trị hợp đồng ${index + 1}" />
+            <div class="package-fields">
+              <input value="${escapeHtml(row.packageName)}" data-action="package-name" aria-label="Tên gói ${index + 1}" />
+              <input value="${escapeHtml(row.packageDetail)}" data-action="package-detail" aria-label="Chi tiết gói ${index + 1}" />
+            </div>
+          </div>
+          <button class="remove-row" type="button" data-action="remove" aria-label="Xóa dòng ${index + 1}">×</button>
+        </div>
+      </td>
+      <td class="regular-value"><span class="board-rate regular">${calculation.regularRate}%</span><span class="board-money">${formatMoney(calculation.regularMoney)}</span></td>
+      <td class="flash-value"><span class="board-rate flash">+${calculation.flashRate}%</span><span class="board-money">${formatMoney(calculation.flashMoney)}</span></td>
+      <td class="total-rate-value"><span class="board-rate total">${calculation.totalRate}%</span></td>
+      <td class="total-value">${formatMoney(calculation.totalPromo)}</td>
+    </tr>
+  `;
+}
+
+function renderRows() {
+  els.lookupRows.innerHTML = state.rows.map(createLookupRow).join("");
+  els.offerRows.innerHTML = state.rows.map(createOfferRow).join("");
+  const label = `${state.rows.length}/${MAX_ROWS} dòng`;
+  els.lookupCounter.textContent = label;
+  els.offerCounter.textContent = label;
+  const atLimit = state.rows.length >= MAX_ROWS;
+  els.addLookupRow.disabled = atLimit;
+  els.addOfferRow.disabled = atLimit;
+}
+
+function renderPolicyTables() {
+  els.policyGrid.innerHTML = Object.entries(TIERS)
+    .sort(([a], [b]) => Number(b === state.customer) - Number(a === state.customer))
+    .map(([customer, tiers]) => {
+      const campaign = CAMPAIGNS[customer];
+      const rows = tiers
+        .map((tier) => {
+          const flash = state.includeFlash ? tier.flash : 0;
+          return `
+            <tr>
+              <td>${escapeHtml(tier.label)}</td>
+              <td>${tier.regular}%</td>
+              <td>${flash}%</td>
+              <td>${tier.regular + flash}%</td>
+            </tr>`;
+        })
+        .join("");
+
+      return `
+        <article class="policy-card ${customer === state.customer ? "is-current" : ""}">
+          <h4>${CUSTOMER_LABELS[customer]} · ${campaign.short}/${campaign.year}</h4>
+          <div class="table-scroll">
+            <table class="policy-table">
+              <thead><tr><th>Mức nạp (gồm VAT)</th><th>Thường<small>HSD 180 ngày</small></th><th>Ưu đãi nạp T${campaign.month}<small>HSD 90 ngày</small></th><th>Tổng</th></tr></thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>
+        </article>`;
+    })
+    .join("");
+}
+
+function renderContact() {
+  const parts = [els.advisorName.value.trim(), els.advisorPhone.value.trim()].filter(Boolean);
+  els.boardContact.textContent = parts.length ? parts.join(" · ") : "Chọn phương án phù hợp với bạn";
+}
+
+function renderInstallments() {
+  const amount = parseMoney(els.installmentAmount.value);
+  const promotion = calculatePromotion(state.customer, amount, state.includeFlash);
+  const bank = BANKS[state.bankIndex];
+
+  els.installmentRate.textContent = `${promotion.totalRate}%`;
+  els.installmentPromo.textContent = formatMoney(promotion.totalPromo);
+  els.bankRateHeading.textContent = `Phí ${bank.name}`;
+  els.bankNotice.textContent = bank.restricted
+    ? `(*) ${bank.name} thuộc nhóm hạn chế tư vấn. Vui lòng kiểm tra lại chính sách ngân hàng trước khi chốt với khách.`
+    : "Phí trả góp được tính trên số tiền gồm VAT. Kiểm tra mức phí áp dụng với ngân hàng trước khi chốt phương án.";
+
+  els.installmentRows.innerHTML = INSTALLMENT_TERMS.map((months, index) => {
+    const rate = bank.rates[index];
+    const result = calculateInstallment(amount, rate, months, promotion.totalPromo);
+    if (!result) {
+      return `<tr><td>${months} tháng</td><td>—</td><td>—</td><td>${formatMoney(promotion.totalPromo)}</td><td>—</td><td>—</td></tr>`;
+    }
+    const netClass = result.netBenefit >= 0 ? "net-positive" : "net-negative";
+    const netPrefix = result.netBenefit >= 0 ? "+" : "−";
+    return `
+      <tr>
+        <td><strong>${months} tháng</strong></td>
+        <td>${Number.isInteger(rate) ? rate : rate.toFixed(2)}%</td>
+        <td>${formatMoney(result.fee)}</td>
+        <td>${formatMoney(promotion.totalPromo)}</td>
+        <td class="${netClass}">${netPrefix}${formatMoney(Math.abs(result.netBenefit))}</td>
+        <td>~${formatMoney(result.monthly)}</td>
+      </tr>`;
+  }).join("");
+}
+
+function renderAll() {
+  renderCustomerState();
+  renderRows();
+  renderPolicyTables();
+  renderContact();
+  renderInstallments();
+}
+
+function addRow(event) {
+  if (state.rows.length >= MAX_ROWS) {
+    showToast(`Bạn đã đạt tối đa ${MAX_ROWS} phương án.`);
+    return;
+  }
+  state.rows.push({
+    id: createId(),
+    amount: 0,
+    packageName: `Phương án ${state.rows.length + 1}`,
+    packageDetail: "",
+  });
+  renderRows();
+  requestAnimationFrame(() => {
+    const body = event?.currentTarget === els.addOfferRow ? els.offerRows : els.lookupRows;
+    const input = body.querySelector(`tr:last-child [data-action="amount"]`);
+    input?.focus();
+  });
+}
+
+function removeRow(id) {
+  if (state.rows.length === 1) {
+    showToast("Cần giữ lại ít nhất 1 phương án.");
+    return;
+  }
+  state.rows = state.rows.filter((row) => row.id !== id);
+  renderRows();
+}
+
+function updateRow(id, action, value) {
+  const row = state.rows.find((item) => item.id === id);
+  if (!row) return;
+  if (action === "amount") row.amount = parseMoney(value);
+  if (action === "package-name") row.packageName = value;
+  if (action === "package-detail") row.packageDetail = value;
+}
+
+function handleRowsInput(event) {
+  const action = event.target.dataset.action;
+  if (!action || action === "remove") return;
+  const tr = event.target.closest("tr[data-row-id]");
+  if (!tr) return;
+  const rowId = tr.dataset.rowId;
+  const sourceBodyId = event.currentTarget.id;
+  updateRow(tr.dataset.rowId, action, event.target.value);
+  if (action === "amount") {
+    renderRows();
+    const refreshedInput = document.querySelector(
+      `#${sourceBodyId} tr[data-row-id="${rowId}"] [data-action="amount"]`,
+    );
+    if (refreshedInput) {
+      refreshedInput.focus();
+      const cursor = refreshedInput.value.length;
+      refreshedInput.setSelectionRange(cursor, cursor);
+    }
+  } else {
+    const matchingInput = document.querySelector(
+      `${event.currentTarget.id === "offerRows" ? "#offerRows" : "#lookupRows"} tr[data-row-id="${tr.dataset.rowId}"] [data-action="${action}"]`,
+    );
+    if (matchingInput && matchingInput !== event.target) matchingInput.value = event.target.value;
+  }
+}
+
+function handleRowsChange(event) {
+  if (event.target.dataset.action !== "amount") return;
+  const tr = event.target.closest("tr[data-row-id]");
+  const row = state.rows.find((item) => item.id === tr?.dataset.rowId);
+  if (row) event.target.value = formatInputMoney(row.amount);
+}
+
+function handleRowsClick(event) {
+  const button = event.target.closest("[data-action='remove']");
+  if (!button) return;
+  const row = button.closest("tr[data-row-id]");
+  if (row) removeRow(row.dataset.rowId);
+}
+
+function drawRoundRect(ctx, x, y, width, height, radius, fill, stroke = null) {
+  const safeRadius = Math.min(radius, width / 2, height / 2);
+  ctx.beginPath();
+  ctx.roundRect(x, y, width, height, safeRadius);
+  if (fill) {
+    ctx.fillStyle = fill;
+    ctx.fill();
+  }
+  if (stroke) {
+    ctx.strokeStyle = stroke;
+    ctx.stroke();
+  }
+}
+
+function fitText(ctx, text, maxWidth) {
+  if (ctx.measureText(text).width <= maxWidth) return text;
+  let result = text;
+  while (result.length > 2 && ctx.measureText(`${result}…`).width > maxWidth) result = result.slice(0, -1);
+  return `${result}…`;
+}
+
+const defaultColumns = [28, 19, 19, 15, 19];
+const boardLayout = { width: 1120, rowHeight: 124, columns: [...defaultColumns] };
+const board = document.querySelector('#promoBoard');
+const widthControl = document.querySelector('#boardWidth');
+const rowControl = document.querySelector('#boardRowHeight');
+const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+function applyBoardLayout() {
+  board.style.width = `${boardLayout.width}px`;
+  board.style.setProperty('--board-row-height', `${boardLayout.rowHeight}px`);
+  widthControl.value = String(boardLayout.width);
+  rowControl.value = String(boardLayout.rowHeight);
+  document.querySelector('#boardWidthValue').value = `${boardLayout.width.toLocaleString('vi-VN')} px`;
+  document.querySelector('#boardRowHeightValue').value = `${boardLayout.rowHeight} px`;
+  document.querySelectorAll('#offerColumns col').forEach((col, index) => { col.style.width = `${boardLayout.columns[index]}%`; });
+  document.querySelectorAll('.column-resizer').forEach((handle, index) => {
+    const min = columnMinimum(index);
+    const max = boardLayout.columns[index] + boardLayout.columns[index + 1] - columnMinimum(index + 1);
+    handle.setAttribute('aria-valuenow', String(Math.round(boardLayout.columns[index])));
+    handle.setAttribute('aria-valuemin', String(Math.ceil(min)));
+    handle.setAttribute('aria-valuemax', String(Math.floor(max)));
+    handle.setAttribute('aria-valuetext', `${Math.round(boardLayout.columns[index])}% chiều rộng bảng`);
+  });
+}
+function columnMinimum(index) { return [23, 15, 15, 13, 18][index]; }
+function resizeColumn(index, desired, original = boardLayout.columns) {
+  const total = original[index] + original[index + 1];
+  boardLayout.columns[index] = clamp(desired, columnMinimum(index), total - columnMinimum(index + 1));
+  boardLayout.columns[index + 1] = total - boardLayout.columns[index];
+  applyBoardLayout();
+}
+widthControl.addEventListener('input', () => { boardLayout.width = Number(widthControl.value); applyBoardLayout(); });
+rowControl.addEventListener('input', () => { boardLayout.rowHeight = Number(rowControl.value); applyBoardLayout(); });
+document.querySelector('#resetBoardSize').addEventListener('click', () => {
+  Object.assign(boardLayout, { width: 1120, rowHeight: 124, columns: [...defaultColumns] });
+  applyBoardLayout();
+  showToast('Đã đặt lại kích thước và độ rộng các cột.');
+});
+
+function bindDrag(handle, onStart, onMove) {
+  let drag = null;
+  handle.addEventListener('pointerdown', (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    drag = { x: event.clientX, y: event.clientY, ...onStart() };
+    handle.setPointerCapture(event.pointerId);
+    document.body.classList.add('is-resizing');
+    handle.focus({ preventScroll: true });
+  });
+  handle.addEventListener('pointermove', (event) => { if (drag) onMove(event, drag); });
+  const finish = () => { drag = null; document.body.classList.remove('is-resizing'); };
+  handle.addEventListener('pointerup', finish);
+  handle.addEventListener('pointercancel', finish);
+  handle.addEventListener('lostpointercapture', finish);
+}
+document.querySelectorAll('.column-resizer').forEach((handle) => {
+  const index = Number(handle.dataset.column);
+  bindDrag(handle, () => ({ columns: [...boardLayout.columns], tableWidth: document.querySelector('.board-table').getBoundingClientRect().width }), (event, drag) => {
+    resizeColumn(index, drag.columns[index] + (event.clientX - drag.x) / drag.tableWidth * 100, drag.columns);
+  });
+  handle.addEventListener('keydown', (event) => {
+    if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+    event.preventDefault();
+    resizeColumn(index, boardLayout.columns[index] + (event.key === 'ArrowRight' ? 1 : -1) * (event.shiftKey ? 3 : 1));
+  });
+});
+const boardHandle = document.querySelector('#boardResizeHandle');
+bindDrag(boardHandle, () => ({ width: boardLayout.width, rowHeight: boardLayout.rowHeight, count: state.rows.length }), (event, drag) => {
+  boardLayout.width = clamp(Math.round((drag.width + event.clientX - drag.x) / 10) * 10, 980, 1600);
+  boardLayout.rowHeight = clamp(Math.round((drag.rowHeight + (event.clientY - drag.y) / drag.count) / 2) * 2, 110, 180);
+  applyBoardLayout();
+});
+boardHandle.addEventListener('keydown', (event) => {
+  if (!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key)) return;
+  event.preventDefault();
+  if (event.key === 'ArrowLeft') boardLayout.width = clamp(boardLayout.width - 10, 980, 1600);
+  if (event.key === 'ArrowRight') boardLayout.width = clamp(boardLayout.width + 10, 980, 1600);
+  if (event.key === 'ArrowUp') boardLayout.rowHeight = clamp(boardLayout.rowHeight - 2, 110, 180);
+  if (event.key === 'ArrowDown') boardLayout.rowHeight = clamp(boardLayout.rowHeight + 2, 110, 180);
+  applyBoardLayout();
+});
+applyBoardLayout();
+
+const campaignImage = document.querySelector('#campaignAsset');
+document.querySelectorAll('.campaign-art').forEach(element => {
+  element.style.backgroundImage = `url("${campaignImage.src}")`;
+});
+
+function drawCanvasIcon(ctx,type,x,y,size,color) {
+  ctx.save();ctx.translate(x,y);ctx.scale(size/24,size/24);ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=2.5;ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();
+  if(type==='bolt'){ctx.moveTo(13,2);ctx.lineTo(4,14);ctx.lineTo(11,14);ctx.lineTo(10,22);ctx.lineTo(20,9);ctx.lineTo(13,9);ctx.closePath();ctx.fill();}
+  else{ctx.moveTo(5,12);ctx.lineTo(9,16);ctx.lineTo(19,6);ctx.stroke();}
+  ctx.restore();
+}
+function canvasText(ctx, text, x, y, size, weight, color, maxWidth, align = 'left') {
+  ctx.textAlign = align;
+  ctx.fillStyle = color;
+  let actualSize = size;
+  ctx.font = `${weight} ${actualSize}px Arial, sans-serif`;
+  while (maxWidth && ctx.measureText(text).width > maxWidth && actualSize > 11) {
+    actualSize -= .5;
+    ctx.font = `${weight} ${actualSize}px Arial, sans-serif`;
+  }
+  ctx.fillText(maxWidth ? fitText(ctx, text, maxWidth) : text, x, y);
+  ctx.textAlign = 'left';
+}
+function canvasPill(ctx, text, cx, y, width, height, fill, color, size = 20) {
+  drawRoundRect(ctx, cx - width / 2, y, width, height, 9, fill);
+  canvasText(ctx, text, cx, y + height / 2 + size * .35, size, 800, color, width - 12, 'center');
+}
+function createPromotionCanvas() {
+  const campaign = CAMPAIGNS[state.customer];
+  const width = boardLayout.width;
+  const tableY = 410, headerHeight = 72, rowHeight = boardLayout.rowHeight;
+  const tableX = 24, tableWidth = width - 48;
+  const tableBottom = tableY + headerHeight + state.rows.length * rowHeight;
+  const height = tableBottom + 130;
+  const canvas = document.createElement('canvas');
+  canvas.width = width * 2; canvas.height = height * 2;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(2,2);
+  const background = ctx.createLinearGradient(0,0,width,height);
+  background.addColorStop(0,'#ffffff'); background.addColorStop(.5,'#fffafa'); background.addColorStop(1,'#fff0f3');
+  drawRoundRect(ctx,0,0,width,height,24,background);
+  ctx.save(); ctx.beginPath(); ctx.roundRect(0,0,width,height,24); ctx.clip();
+  if (campaignImage.complete && campaignImage.naturalWidth) {
+    ctx.drawImage(campaignImage, width - 380, 76, 350, 326);
+  }
+  canvasText(ctx,'Batdongsan.com.vn',32,51,24,800,'#cf0725',255);
+  canvasText(ctx,'by PropertyGuru',32,72,12,600,'#526078',230);
+  canvasText(ctx,`ƯU ĐÃI THÁNG ${campaign.month} / ${campaign.year}`,width-32,57,12,800,'#c70529',260,'right');
+  const customer = CUSTOMER_LABELS[state.customer];
+  ctx.font = '700 14px Arial, sans-serif';
+  const customerWidth = ctx.measureText(customer).width + 28;
+  drawRoundRect(ctx,32,108,customerWidth,31,16,'#fff0f2','#f7dbe1');
+  canvasText(ctx,customer,46,129,14,700,'#cf0725');
+  canvasText(ctx,state.includeFlash ? campaign.bannerLabel : 'ƯU ĐÃI THƯỜNG',32,207,state.includeFlash ? 62 : 44,800,'#e40024',width*.54-48);
+  if (state.includeFlash) {
+    ctx.font='800 62px Arial, sans-serif';
+    const boltX=32+ctx.measureText(campaign.bannerLabel).width+12;
+    drawCanvasIcon(ctx,'bolt',boltX,153,38,'#e40024');
+  }
+  canvasText(ctx,campaign.headline[0],32,261,44,800,'#111b35',width*.53-42);
+  const headlineMaxTier = TIERS[state.customer].at(-1);
+  const headlineMaxRate = headlineMaxTier.regular + (state.includeFlash ? headlineMaxTier.flash : 0);
+  canvasText(ctx,`Nhận thêm tới ${headlineMaxRate}% ưu đãi`,32,314,34,800,'#111b35',width*.53-42);
+  if (state.includeFlash) {
+    drawRoundRect(ctx,32,337,216,34,8,'#fff0f3','#f4bac6');
+    canvasText(ctx,campaign.period,140,360,16,700,'#d60a30',200,'center');
+  }
+  const maxTier = TIERS[state.customer].at(-1);
+  const maxRate = maxTier.regular + (state.includeFlash ? maxTier.flash : 0);
+  const offerX = width*.7-196, offerY=222;
+  ctx.save(); ctx.translate(offerX+98,offerY+68); ctx.rotate(-5*Math.PI/180);
+  drawRoundRect(ctx,-98,-68,196,136,15,'#fffffff5','#f4cbd3');
+  canvasText(ctx,'TỔNG ƯU ĐÃI ĐẾN',0,-39,13,800,'#1d2842',174,'center');
+  canvasText(ctx,`${maxRate}%`,0,27,68,800,'#df0629',174,'center');
+  canvasText(ctx,state.includeFlash ? `Ưu đãi thường + ${campaign.bonusLabel}` : 'Chỉ tính ưu đãi thường',0,49,10,600,'#67718a',176,'center');
+  ctx.restore();
+  const columns = boardLayout.columns.map(v => v/100);
+  ctx.save(); ctx.beginPath(); ctx.roundRect(tableX,tableY,tableWidth,headerHeight + state.rows.length*rowHeight,15); ctx.clip();
+  const tableGradient = ctx.createLinearGradient(tableX,tableY,width,tableY+80);
+  tableGradient.addColorStop(0,'#ed1535');tableGradient.addColorStop(1,'#a9001c');
+  ctx.fillStyle=tableGradient; ctx.fillRect(tableX,tableY,tableWidth,headerHeight);
+  const headers = [['Giá trị HĐ','(gồm VAT)'],['Ưu đãi thường','HSD 180 ngày'],[campaign.bonusLabel,`${campaign.short} · HSD 90 ngày`],['Tổng %','khuyến mãi'],['Tổng tiền KM','Trên giá chưa VAT']];
+  let x = tableX;
+  headers.forEach(([title,subtitle],i) => {
+    const cw=tableWidth*columns[i], cx=x+cw/2;
+    canvasText(ctx,title,i?cx:x+20,tableY+30,14,700,'#fff',cw-24,i?'center':'left');
+    canvasText(ctx,subtitle,i?cx:x+20,tableY+50,12,500,'#ffe4ea',cw-24,i?'center':'left');
+    if(i){ctx.fillStyle='#ffffff25';ctx.fillRect(x,tableY,1,headerHeight);}
+    x+=cw;
+  });
+  state.rows.forEach((row,ri) => {
+    const y=tableY+headerHeight+ri*rowHeight, calc=calculatePromotion(state.customer,row.amount,state.includeFlash);
+    ctx.fillStyle=ri%2?'#fff7f8':'#ffffff';ctx.fillRect(tableX,y,tableWidth,rowHeight);
+    ctx.fillStyle='#f4dfe4';ctx.fillRect(tableX,y,tableWidth,1);
+    const col0=tableWidth*columns[0], mid=y+rowHeight/2;
+    canvasText(ctx,`${formatInputMoney(row.amount)||'0'}đ`,tableX+18,mid-16,21,800,'#111b3c',col0-34);
+    canvasText(ctx,row.packageName,tableX+18,mid+9,12,600,'#4f5d76',col0-34);
+    canvasText(ctx,row.packageDetail,tableX+18,mid+29,12,400,'#67738a',col0-34);
+    let vx=tableX+col0;
+    for(let i=1;i<5;i++){
+      const cw=tableWidth*columns[i],cx=vx+cw/2;
+      ctx.fillStyle='#f8e9ed';ctx.fillRect(vx,y,1,rowHeight);
+      if(i===1||i===2){
+        const regular=i===1;
+        canvasPill(ctx,`${regular?'':'+'}${regular?calc.regularRate:calc.flashRate}%`,cx,mid-33,70,34,regular?'#eef0f6':'#ffe9ee',regular?'#263352':'#df0629',19);
+        canvasText(ctx,formatMoney(regular?calc.regularMoney:calc.flashMoney),cx,mid+27,14,600,regular?'#263352':'#c9082d',cw-20,'center');
+      }else if(i===3){canvasPill(ctx,`${calc.totalRate}%`,cx,mid-22,82,44,'#d8062b','#fff',23);}
+      else {canvasText(ctx,formatMoney(calc.totalPromo),cx,mid+7,20,800,'#067749',cw-20,'center');}
+      vx+=cw;
+    }
+  });
+  ctx.restore();
+  ctx.strokeStyle='#f1cad2'; ctx.lineWidth=1; ctx.beginPath();ctx.roundRect(tableX,tableY,tableWidth,headerHeight+state.rows.length*rowHeight,15);ctx.stroke();
+  const footerY=tableBottom+25;
+  [[32,'✓','Ưu đãi thường','Sử dụng trong 180 ngày'],[290,'ϟ',campaign.bonusLabel,'Sử dụng trong 90 ngày']].forEach(([x,icon,title,detail])=>{
+    drawRoundRect(ctx,x,footerY,42,42,21,'#ffe8ee'); drawCanvasIcon(ctx,icon==='✓'?'check':'bolt',x+10,footerY+10,22,'#dd0830');
+    canvasText(ctx,title,x+54,footerY+14,12,500,'#5e687e',210);
+    canvasText(ctx,detail,x+54,footerY+35,13,700,'#26324d',210);
+  });
+  const contact=[els.advisorName.value.trim(),els.advisorPhone.value.trim()].filter(Boolean).join(' · ') || 'Chọn phương án phù hợp với bạn';
+  const contactWidth=Math.min(380,width*.36),contactX=width-32-contactWidth;
+  drawRoundRect(ctx,contactX,footerY-5,contactWidth,59,12,'#d10a32');
+  canvasText(ctx,'Liên hệ tư vấn',contactX+16,footerY+14,11,500,'#ffe5ee',contactWidth-32);
+  canvasText(ctx,contact,contactX+16,footerY+37,14,700,'#fff',contactWidth-32);
+  canvasText(ctx,'Tiền KM = (Giá trị HĐ ÷ 1,08) × Tổng % khuyến mãi. Mức ưu đãi thay đổi theo giá trị HĐ.',32,height-23,11,400,'#788198',width-64);
+  ctx.restore();
+  return canvas;
+}
+async function downloadPromotionPng() {
+  const button=els.downloadPng;
+  button.disabled=true; button.setAttribute('aria-busy','true');
+  try {
+    await Promise.allSettled([document.fonts?.ready, campaignImage.decode()]);
+    const canvas = createPromotionCanvas();
+    const blob = await new Promise((resolve) => canvas.toBlob(resolve,'image/png'));
+    if(!blob) throw new Error('PNG unavailable');
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    const customerName = state.customer === 'personal' ? 'ca-nhan' : 'doanh-nghiep';
+    const campaign = CAMPAIGNS[state.customer];
+    const bonusSlug = campaign.bonusLabel === 'Ontop' ? 'ontop' : 'flash-sale';
+    link.download = `bang-uu-dai-${customerName}-${state.includeFlash?bonusSlug:'thuong'}-thang-${campaign.month}-${campaign.year}.png`;
+    link.href = url; document.body.append(link);link.click();link.remove();
+    window.setTimeout(()=>URL.revokeObjectURL(url),30000);
+    showToast('Đã tạo PNG với đầy đủ phần trăm, trang trí và kích thước bạn chọn.');
+  } catch(error) {
+    showToast('Chưa tạo được ảnh. Bạn tải lại trang rồi thử lại nhé.');
+    console.error('Không thể xuất PNG:',error);
+  } finally {button.disabled=false;button.removeAttribute('aria-busy');}
+}
+
+els.customerSwitcher.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-customer]");
+  if (!button) return;
+  state.customer = button.dataset.customer;
+  renderAll();
+});
+
+els.bankSelect.addEventListener("change", () => {
+  state.bankIndex = Number(els.bankSelect.value);
+  renderInstallments();
+});
+
+els.flashToggle.addEventListener("change", () => {
+  state.includeFlash = els.flashToggle.checked;
+  renderAll();
+});
+
+[els.advisorName, els.advisorPhone].forEach((input) => input.addEventListener("input", renderContact));
+
+[els.addLookupRow, els.addOfferRow].forEach((button) => button.addEventListener("click", addRow));
+
+[els.lookupRows, els.offerRows].forEach((body) => {
+  body.addEventListener("input", handleRowsInput);
+  body.addEventListener("change", handleRowsChange);
+  body.addEventListener("click", handleRowsClick);
+});
+
+els.installmentAmount.addEventListener("input", renderInstallments);
+els.installmentAmount.addEventListener("change", () => {
+  els.installmentAmount.value = formatInputMoney(parseMoney(els.installmentAmount.value));
+});
+
+els.downloadPng.addEventListener("click", downloadPromotionPng);
+
+document.querySelectorAll("[data-scroll]").forEach((button) => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".nav-pill").forEach((pill) => pill.classList.remove("is-active"));
+    button.classList.add("is-active");
+    document.querySelector(`#${button.dataset.scroll}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+});
+
+renderBankOptions();
+renderAll();
+
+    </script>
+  </body>
+</html>
