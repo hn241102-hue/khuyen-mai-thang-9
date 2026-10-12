@@ -2,12 +2,12 @@ export const VAT_RATE = 0.08;
 export const MAX_ROWS = 10;
 
 export const CAMPAIGN = Object.freeze({
-  name: "Nạp tiền hôm nay – Nhận thêm tới 35% ưu đãi",
-  headline: ["Nạp tiền hôm nay", "Nhận thêm tới 35% ưu đãi"],
-  start: "03/10/2026",
-  end: "11/10/2026",
-  short: "03/10–11/10",
-  period: "03/10 – 11/10/2026",
+  name: "Nạp tiền hôm nay – Nhận thêm tới 36% ưu đãi",
+  headline: ["Nạp tiền hôm nay", "Nhận thêm tới 36% ưu đãi"],
+  start: "12/10/2026",
+  end: "16/10/2026",
+  short: "12–16/10",
+  period: "12/10 – 16/10/2026",
   month: "10",
   year: "2026",
   bonusLabel: "Ontop",
@@ -39,13 +39,14 @@ export const CUSTOMER_LABELS = Object.freeze({
 
 export const TIERS = Object.freeze({
   personal: [
-    { label: "500.000 – < 1 triệu", min: 500_000, max: 1_000_000, regular: 0, flash: 10 },
-    { label: "1 – < 2 triệu", min: 1_000_000, max: 2_000_000, regular: 0, flash: 15 },
-    { label: "2 – < 5 triệu", min: 2_000_000, max: 5_000_000, regular: 2, flash: 18 },
-    { label: "5 – < 10 triệu", min: 5_000_000, max: 10_000_000, regular: 4, flash: 21 },
+    { label: "500.000 – < 1 triệu", min: 500_000, max: 1_000_000, regular: 0, flash: 0 },
+    { label: "1 – < 2 triệu", min: 1_000_000, max: 2_000_000, regular: 0, flash: 18 },
+    { label: "2 – < 3 triệu", min: 2_000_000, max: 3_000_000, regular: 2, flash: 18 },
+    { label: "3 – < 5 triệu", min: 3_000_000, max: 5_000_000, regular: 2, flash: 22 },
+    { label: "5 – < 10 triệu", min: 5_000_000, max: 10_000_000, regular: 4, flash: 24 },
     { label: "10 – < 20 triệu", min: 10_000_000, max: 20_000_000, regular: 6, flash: 24 },
-    { label: "20 – < 50 triệu", min: 20_000_000, max: 50_000_000, regular: 8, flash: 24 },
-    { label: "≥ 50 triệu", min: 50_000_000, max: null, regular: 10, flash: 25 },
+    { label: "20 – < 50 triệu", min: 20_000_000, max: 50_000_000, regular: 8, flash: 26 },
+    { label: "≥ 50 triệu", min: 50_000_000, max: null, regular: 10, flash: 26 },
   ],
   business: [
     { label: "5 – < 10 triệu", min: 5_000_000, max: 10_000_000, regular: 0, flash: 15 },

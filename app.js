@@ -10,7 +10,7 @@ import {
   formatInputMoney,
   formatMoney,
   parseMoney,
-} from "./pricing.js?v=20261003";
+} from "./pricing.js?v=20261012";
 
 function createId() {
   return globalThis.crypto?.randomUUID?.() ?? `row-${Date.now()}-${Math.random().toString(16).slice(2)}`;

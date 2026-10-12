@@ -1,43 +1,39 @@
-# Khuyến mãi khách hàng cá nhân — 03/10–11/10/2026
+# Khuyến mãi khách hàng cá nhân — 12–16/10/2026
 
-**Tên chương trình:** Nạp tiền hôm nay – Nhận thêm tới 35% ưu đãi.
-**Đối tượng cập nhật:** Khách hàng cá nhân.
-**Thời gian:** 03/10/2026 đến 11/10/2026.
+Cập nhật theo bảng người dùng cung cấp ngày 12/10/2026.
 
-## Mức ưu đãi theo ảnh cung cấp
-
-| Mức phí dịch vụ gồm VAT | Ưu đãi thường | Ontop | Tổng ưu đãi |
+| Mức nạp gồm VAT | Ưu đãi thường | Ưu đãi nạp tiền T10 | Tổng |
 | --- | ---: | ---: | ---: |
-| 500.000 – dưới 1 triệu | 0% | 10% | 10% |
-| 1 – dưới 2 triệu | 0% | 15% | 15% |
-| 2 – dưới 5 triệu | 2% | 18% | 20% |
-| 5 – dưới 10 triệu | 4% | 21% | 25% |
+| 500 nghìn – dưới 1 triệu | 0% | 0% | 0% |
+| 1 – dưới 2 triệu | 0% | 18% | 18% |
+| 2 – dưới 3 triệu | 2% | 18% | 20% |
+| 3 – dưới 5 triệu | 2% | 22% | 24% |
+| 5 – dưới 10 triệu | 4% | 24% | 28% |
 | 10 – dưới 20 triệu | 6% | 24% | 30% |
-| 20 – dưới 50 triệu | 8% | 24% | 32% |
-| Từ 50 triệu | 10% | 25% | 35% |
+| 20 – dưới 50 triệu | 8% | 26% | 34% |
+| Từ 50 triệu | 10% | 26% | 36% |
 
-Ưu đãi thường có hạn sử dụng 180 ngày; Ontop có hạn sử dụng 90 ngày.
-Tiền khuyến mãi vẫn tính trên số tiền chưa VAT: số tiền gồm VAT ÷ 1,08 × tổng tỷ lệ ưu đãi.
+Các mốc nạp xét theo số tiền gồm VAT, đúng tiêu đề bảng nguồn.
+Giữ nguyên cách tính hiện tại: số tiền nạp ÷ 1,08 × tổng tỷ lệ ưu đãi.
+Chỉ cập nhật các mức tỷ lệ khách hàng cá nhân và ngày 12–16/10 đã xác nhận; giữ nguyên giao diện.
+Doanh nghiệp giữ bảng tỷ lệ, ngày áp dụng cũ và cách tính VAT riêng của bản trước.
 
-Bảng doanh nghiệp được giữ riêng theo chính sách cũ 23–29/9/2026 và được ghi rõ là bảng cũ. Chương trình tháng 10 trong ảnh không được áp dụng sang doanh nghiệp.
+## Cập nhật GitHub và Vercel
 
-## Cập nhật lên GitHub và Vercel
-
-1. Giải nén **Khuyen-mai-thang-10-Vercel.zip**.
-2. Mở đúng repository GitHub đang kết nối với website Vercel hiện tại.
-3. Tải đè toàn bộ file và thư mục trong bộ đã giải nén vào đúng thư mục mã nguồn cũ. Không tải nguyên file ZIP lên GitHub.
+1. Giải nén Khuyen-mai-thang-10-Vercel.zip.
+2. Mở repository GitHub cũ, vào thư mục đang chứa index.html.
+3. Chọn Add file → Upload files. Tải đè tất cả file và thư mục bên trong bộ đã giải nén, bao gồm assets.
 4. Commit thay đổi trên nhánh Vercel đang triển khai và chờ deployment hoàn tất.
 
-Lần cập nhật này cần có đủ **index.html**, **app.js** và **pricing.js** để tên chương trình, ngày và tỷ lệ được cập nhật đồng bộ. Nếu chỉ thay styles.css thì sẽ không cập nhật mức khuyến mãi.
-Không cần tạo repository hoặc dự án Vercel mới. Giữ nguyên thư mục assets khi tải lên.
+Cần cập nhật đồng bộ index.html, app.js, pricing.js và styles.css. Đường dẫn có mã phiên bản 20261012 để tải bản mới.
+Bộ mã nguồn có đầy đủ file giao diện, font cục bộ và ảnh. Không tải nguyên file ZIP hay thư mục bao ngoài lên GitHub.
+Không cần tạo repository hay dự án Vercel mới.
 
-## Xem trước
+## Xem trước và kiểm tra
 
-Mở **Khuyen-mai-thang-10.html** được gửi riêng để xem trước trực tiếp trên máy.
-Để chạy mã nguồn: trong thư mục này chạy `python -m http.server 8080`, rồi mở http://localhost:8080.
-File vercel.json cấu hình website tĩnh; không cần npm install hoặc lệnh build.
+Khuyen-mai-thang-10.html được gửi riêng có thể mở trực tiếp trên máy.
+Mã nguồn chạy bằng `python -m http.server 8080`, rồi mở http://localhost:8080.
+Cấu hình vercel.json dành cho website tĩnh, không cần cài gói hoặc chạy build.
 
-Layout, font Manrope, ảnh minh họa, kéo giãn bảng và cấu hình ngân hàng được giữ lại. Dòng tên chương trình mới được điều chỉnh cỡ chữ cho vừa vùng tiêu đề cũ.
-Phần tra cứu, bảng phương án, trả góp và PNG lấy đúng tỷ lệ theo nhóm khách hàng được chọn.
-
-Đã kiểm tra 7 mức khuyến mãi, các mốc chuyển mức, bật/tắt Ontop, tách chính sách doanh nghiệp, tương tác bằng mô phỏng DOM và ảnh PNG. Bộ file này chưa cập nhật trực tiếp website Vercel.
+Đã kiểm tra 8 mức và các mốc chuyển mức, ví dụ 4,4 triệu → 977.778đ, tra cứu, bảng phương án, trả góp, đổi nhóm khách hàng và xuất PNG bằng mô phỏng DOM/canvas.
+Bộ file chưa được cập nhật trực tiếp lên GitHub hoặc Vercel.
