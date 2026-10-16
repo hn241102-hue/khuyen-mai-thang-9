@@ -1,93 +1,42 @@
-# Khuyến mãi doanh nghiệp tháng 10
+# Khuyến mãi cá nhân và doanh nghiệp — 19–23/10/2026
 
-Bộ mã nguồn HTML, CSS và JavaScript để đưa lên GitHub và triển khai trên Vercel. Không cần API key, cơ sở dữ liệu hay thư viện bên ngoài.
+Cập nhật tỷ lệ theo hai bảng người dùng cung cấp ngày 16/10/2026. Giữ nguyên layout, font, ảnh, thao tác kéo giãn bảng và cách tính tiền hiện tại.
 
-## Đưa lên GitHub và Vercel
+## Khách hàng cá nhân
 
-1. Giải nén `khuyen-mai-doanh-nghiep-github.zip`.
-2. Tạo repository trên GitHub. Chọn **Add file → Upload files**, tải toàn bộ **nội dung bên trong** thư mục `khuyen-mai-doanh-nghiep` lên rồi commit. `package.json`, `index.html` và `vercel.json` phải nằm ở thư mục gốc repository.
-3. Trên Vercel, tạo Project và import repository vừa tạo.
-4. Dùng cấu hình sau rồi chọn **Deploy**. Các thông số build đã có trong `vercel.json`:
-
-| Thiết lập | Giá trị |
-| --- | --- |
-| Framework Preset | Other |
-| Root Directory | Thư mục gốc chứa `package.json` |
-| Build Command | `npm run build` |
-| Output Directory | `dist` |
-| Environment Variables | Không cần |
-
-Nếu cập nhật repository cũ, thay thế các file trùng tên và giữ nguyên cấu trúc thư mục. Nếu Vercel đã kết nối repository đó, commit mới sẽ kích hoạt triển khai theo thiết lập của project.
-
-Tài liệu cấu hình Vercel: https://vercel.com/docs/project-configuration/vercel-json
-
-## Nội dung đã cập nhật
-
-- Mặc định chọn **Doanh nghiệp**, vẫn giữ chế độ Cá nhân của trang mẫu.
-- Thay bảng doanh nghiệp tháng 9 bằng 9 mức tháng 10 từ ảnh cung cấp.
-- Tính cùng một tỷ lệ cho tra cứu, bảng phương án, trả góp và PNG.
-- Có thể bật/tắt ưu đãi tháng 10, thêm/xóa tối đa 10 phương án, sửa tên gói và thông tin tư vấn viên.
-- Điều chỉnh độ rộng cột, chiều rộng bảng và giãn dòng trước khi tải PNG.
-- Khi tắt ưu đãi tháng 10, tỷ lệ tối đa và tiêu đề PNG chuyển về ưu đãi thường (doanh nghiệp: 14%).
-- Thay ảnh/phông chữ bị 404 trên trang mẫu bằng đồ họa SVG cục bộ và phông hệ thống. Không phụ thuộc website mẫu để hoạt động.
-
-## Tỷ lệ doanh nghiệp theo ảnh
-
-| Mức nạp / giao dịch (đã gồm VAT) | Thường, HSD 180 ngày | Ưu đãi T10, HSD 90 ngày | Tổng |
+| Mức nạp gồm VAT | Thường | Ontop | Tổng |
 | --- | ---: | ---: | ---: |
-| 500.000 đến dưới 1 triệu | 0% | 0% | 0% |
-| 1 đến dưới 3 triệu | 0% | 18% | 18% |
-| 3 đến dưới 5 triệu | 0% | 22% | 22% |
-| 5 đến dưới 10 triệu | 0% | 24% | 24% |
-| 10 đến dưới 20 triệu | 5% | 24% | 29% |
-| 20 đến dưới 50 triệu | 7% | 26% | 33% |
-| 50 đến dưới 100 triệu | 10% | 26% | 36% |
-| 100 đến dưới 300 triệu | 12% | 26% | 38% |
+| 500 nghìn – dưới 2 triệu | 0% | 8% | 8% |
+| 2 – dưới 5 triệu | 2% | 18% | 20% |
+| 5 – dưới 10 triệu | 4% | 21% | 25% |
+| 10 – dưới 20 triệu | 6% | 22% | 28% |
+| 20 – dưới 50 triệu | 8% | 22% | 30% |
+| 50 – dưới 100 triệu | 10% | 22% | 32% |
+| Từ 100 triệu | 10% | 25% | 35% |
+
+## Khách hàng doanh nghiệp
+
+| Mức nạp gồm VAT | Thường | Flash Sale | Tổng |
+| --- | ---: | ---: | ---: |
+| 5 – dưới 10 triệu | 0% | 25% | 25% |
+| 10 – dưới 20 triệu | 5% | 23% | 28% |
+| 20 – dưới 50 triệu | 7% | 23% | 30% |
+| 50 – dưới 100 triệu | 10% | 24% | 34% |
+| 100 – dưới 300 triệu | 12% | 26% | 38% |
 | Từ 300 triệu | 14% | 26% | 40% |
 
-Mốc nạp xét trên giá đã gồm VAT. Giữ công thức của trang mẫu:
+Các mốc nạp xét theo số tiền gồm VAT. Ưu đãi thường có HSD 180 ngày; phần Ontop / Flash Sale có HSD 90 ngày. Giữ nguyên công thức của website: số tiền nạp ÷ 1,08 × tổng tỷ lệ ưu đãi, làm tròn đến đồng.
 
-`Tiền khuyến mãi = làm tròn((Số tiền nạp / 1,08) × Tổng tỷ lệ / 100)`
+## Cập nhật GitHub → Vercel
 
-Ví dụ nạp 20 triệu: tổng tỷ lệ doanh nghiệp 33%, tiền khuyến mãi 6.111.111đ.
+1. Giải nén Khuyen-mai-thang-10-Vercel.zip.
+2. Mở repository GitHub cũ, vào đúng thư mục đang chứa index.html.
+3. Add file → Upload files, tải đè các file và thư mục bên trong bộ giải nén, bao gồm assets.
+4. Commit changes trên nhánh liên kết với Vercel và chờ triển khai hoàn tất.
 
-Tiền từng phần và tổng tiền được làm tròn độc lập như bản gốc, nên tổng các phần có thể lệch 1đ so với tổng khuyến mãi.
+Không tải nguyên ZIP hoặc tạo thêm thư mục bao ngoài. Không cần tạo repository hay dự án Vercel mới. Nếu chỉ muốn thay các file đã sửa: index.html, app.js, pricing.js và README.md; các file còn lại giữ nguyên.
 
-## Nguồn và thời gian chương trình
+Khuyen-mai-thang-10.html là bản xem trước độc lập có thể mở trực tiếp trên máy.
+Bộ mã nguồn là website tĩnh, không cần cài gói hoặc chạy build. Chạy thử bằng `python -m http.server 8080` rồi mở http://localhost:8080.
 
-- Trang tham chiếu: https://khuyen-mai-thang-10.vercel.app/ (đọc ngày 12/10/2026).
-- Ảnh tỷ lệ doanh nghiệp: `assets/business-policy-october.png`.
-- Ảnh chỉ ghi tháng 10, không có ngày bắt đầu/kết thúc. Bản này **tạm giữ 12/10/2026 đến 16/10/2026 theo chương trình tháng 10 trên trang mẫu**. Nếu doanh nghiệp có lịch riêng, sửa `CAMPAIGNS.business` trong `pricing.js` trước khi dùng thực tế.
-- VAT 8%, bảng cá nhân và mức phí ngân hàng được giữ từ trang mẫu; không được đối chiếu lại với thông báo chính sách bên ngoài.
-- Công cụ không tự bật/tắt theo ngày. Người dùng chọn có áp dụng ưu đãi tháng 10 hay không bằng ô chương trình.
-- Tên và số điện thoại chỉ dùng trong phiên trình duyệt và ảnh xuất; ứng dụng không gửi dữ liệu này lên máy chủ hay lưu vào localStorage.
-
-## Sửa nội dung
-
-| File | Mục đích |
-| --- | --- |
-| `pricing.js` | Tỷ lệ, mốc nạp, ngày chương trình, VAT, phí ngân hàng |
-| `app.js` | Tương tác, dựng bảng, vẽ và tải PNG |
-| `index.html` | Cấu trúc trang |
-| `styles.css` | Giao diện và màn hình nhỏ |
-| `assets/campaign-art.svg` | Trang trí bảng phương án |
-| `scripts/build.mjs` | Tạo thư mục triển khai `dist` |
-
-## Kiểm tra và chạy trên máy
-
-Với Node.js 20 trở lên:
-
-```bash
-npm test
-npm run build
-```
-
-Không cần `npm install` để chạy các lệnh trên vì không có dependencies. Để xem trang, dùng máy chủ tĩnh, ví dụ Python 3:
-
-```bash
-python -m http.server 8000 --directory dist
-```
-
-Sau đó mở http://localhost:8000. Không mở `index.html` bằng cách nhấp đúp vì trình duyệt có thể chặn ES modules trên địa chỉ `file://`.
-
-Kiểm thử tự động kiểm tra các mốc tỷ lệ, trước ranh giới 1đ, bật/tắt ưu đãi, VAT và liên kết phép tính trả góp. Giao diện trình duyệt và triển khai Vercel thực tế cần được kiểm tra sau khi import project.
+Đã kiểm tra các mốc chuyển tỷ lệ, bật/tắt phần ưu đãi thêm, chuyển nhóm khách hàng, tra cứu, bảng phương án, trả góp và xuất PNG bằng mô phỏng DOM/canvas. Bộ file chưa được cập nhật trực tiếp lên GitHub hoặc Vercel.

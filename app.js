@@ -10,14 +10,14 @@ import {
   formatInputMoney,
   formatMoney,
   parseMoney,
-} from "./pricing.js?v=20261012-business";
+} from "./pricing.js?v=20261016";
 
 function createId() {
   return globalThis.crypto?.randomUUID?.() ?? `row-${Date.now()}-${Math.random().toString(16).slice(2)}`;
 }
 
 const state = {
-  customer: "business",
+  customer: "personal",
   includeFlash: true,
   bankIndex: 0,
   rows: [
@@ -99,10 +99,8 @@ function renderCustomerState() {
   document.querySelector('#lookupBonusHeading').textContent = `${campaign.bonusLabel} ${campaign.short}`;
   document.querySelector('.campaign-season').textContent = `ƯU ĐÃI THÁNG ${campaign.month} / ${campaign.year}`;
   document.querySelector('#boardHeadlineMain').textContent = campaign.headline[0];
-  const maxTier = TIERS[state.customer].at(-1);
-  const maxRate = maxTier.regular + (state.includeFlash ? maxTier.flash : 0);
-  document.querySelector('#boardHeadlineBenefit').textContent = `Nhận thêm tới ${maxRate}% ưu đãi`;
-  document.querySelector('#boardHeadlineBenefit').style.fontSize = '34px';
+  document.querySelector('#boardHeadlineBenefit').textContent = campaign.headline[1];
+  document.querySelector('#boardHeadlineBenefit').style.fontSize = state.customer === 'personal' ? '34px' : '';
   document.querySelector('#boardDateText').textContent = campaign.period;
   document.querySelector('#boardBonusPeriod').textContent = `${campaign.short} · HSD 90 ngày`;
   document.querySelector('.column-resizer[data-column="2"]').setAttribute('aria-label', `Độ rộng cột ${campaign.bonusLabel}`);
@@ -111,10 +109,10 @@ function renderCustomerState() {
   document.querySelector("#boardCampaignDate").style.visibility = state.includeFlash ? "visible" : "hidden";
   document.querySelector(".max-offer small").textContent = state.includeFlash ? `Ưu đãi thường + ${campaign.bonusLabel}` : "Chỉ tính ưu đãi thường";
   const status = state.includeFlash ? `Đang tính ưu đãi thường + ${campaign.bonusLabel}.` : `Đã tắt ${campaign.bonusLabel}. Chỉ tính ưu đãi thường.`;
-  document.querySelector("#campaignStatus").textContent = status;
-  document.querySelector('#campaignName').textContent = state.includeFlash ? campaign.name : `Ưu đãi thường dành cho ${CUSTOMER_LABELS[state.customer].toLowerCase()}`;
+  document.querySelector("#campaignStatus").textContent = state.customer === 'business' ? `Bảng doanh nghiệp ${campaign.period}. ${status}` : status;
   document.querySelector("#campaignAlert").classList.toggle("is-disabled", !state.includeFlash);
-  els.maxOfferValue.textContent = `${maxRate}%`;
+  const maxTier = TIERS[state.customer].at(-1);
+  els.maxOfferValue.textContent = `${maxTier.regular + (state.includeFlash ? maxTier.flash : 0)}%`;
 }
 
 function createLookupRow(row, index) {
@@ -176,7 +174,6 @@ function renderRows() {
 
 function renderPolicyTables() {
   els.policyGrid.innerHTML = Object.entries(TIERS)
-    .sort(([a], [b]) => Number(b === state.customer) - Number(a === state.customer))
     .map(([customer, tiers]) => {
       const campaign = CAMPAIGNS[customer];
       const rows = tiers
@@ -197,7 +194,7 @@ function renderPolicyTables() {
           <h4>${CUSTOMER_LABELS[customer]} · ${campaign.short}/${campaign.year}</h4>
           <div class="table-scroll">
             <table class="policy-table">
-              <thead><tr><th>Mức nạp (gồm VAT)</th><th>Thường<small>HSD 180 ngày</small></th><th>Ưu đãi nạp T${campaign.month}<small>HSD 90 ngày</small></th><th>Tổng</th></tr></thead>
+              <thead><tr><th>Mức nạp (gồm VAT)</th><th>Thường</th><th>${campaign.bonusLabel}</th><th>Tổng</th></tr></thead>
               <tbody>${rows}</tbody>
             </table>
           </div>
@@ -432,7 +429,7 @@ boardHandle.addEventListener('keydown', (event) => {
 applyBoardLayout();
 
 const campaignImage = document.querySelector('#campaignAsset');
-document.querySelectorAll('.campaign-art').forEach(element => {
+document.querySelectorAll('.campaign-logo,.campaign-art').forEach(element => {
   element.style.backgroundImage = `url("${campaignImage.src}")`;
 });
 
@@ -446,10 +443,10 @@ function canvasText(ctx, text, x, y, size, weight, color, maxWidth, align = 'lef
   ctx.textAlign = align;
   ctx.fillStyle = color;
   let actualSize = size;
-  ctx.font = `${weight} ${actualSize}px Arial, sans-serif`;
+  ctx.font = `${weight} ${actualSize}px Manrope, Arial`;
   while (maxWidth && ctx.measureText(text).width > maxWidth && actualSize > 11) {
     actualSize -= .5;
-    ctx.font = `${weight} ${actualSize}px Arial, sans-serif`;
+    ctx.font = `${weight} ${actualSize}px Manrope, Arial`;
   }
   ctx.fillText(maxWidth ? fitText(ctx, text, maxWidth) : text, x, y);
   ctx.textAlign = 'left';
@@ -474,26 +471,27 @@ function createPromotionCanvas() {
   drawRoundRect(ctx,0,0,width,height,24,background);
   ctx.save(); ctx.beginPath(); ctx.roundRect(0,0,width,height,24); ctx.clip();
   if (campaignImage.complete && campaignImage.naturalWidth) {
-    ctx.drawImage(campaignImage, width - 380, 76, 350, 326);
+    ctx.drawImage(campaignImage,54,16,230,59,32,24,230,59);
+    ctx.save(); ctx.globalCompositeOperation = 'multiply';
+    ctx.drawImage(campaignImage,820,0,430,420,width-398,60,390,381);
+    ctx.restore();
+    const fadeLeft=ctx.createLinearGradient(width-398,0,width-330,0);fadeLeft.addColorStop(0,'#fffafa');fadeLeft.addColorStop(1,'#fffafa00');ctx.fillStyle=fadeLeft;ctx.fillRect(width-398,60,68,381);
+    const fadeTop=ctx.createLinearGradient(0,60,0,95);fadeTop.addColorStop(0,'#fffafa');fadeTop.addColorStop(1,'#fffafa00');ctx.fillStyle=fadeTop;ctx.fillRect(width-398,60,390,35);
   }
-  canvasText(ctx,'Batdongsan.com.vn',32,51,24,800,'#cf0725',255);
-  canvasText(ctx,'by PropertyGuru',32,72,12,600,'#526078',230);
   canvasText(ctx,`ƯU ĐÃI THÁNG ${campaign.month} / ${campaign.year}`,width-32,57,12,800,'#c70529',260,'right');
   const customer = CUSTOMER_LABELS[state.customer];
-  ctx.font = '700 14px Arial, sans-serif';
+  ctx.font = '700 14px Manrope, Arial';
   const customerWidth = ctx.measureText(customer).width + 28;
   drawRoundRect(ctx,32,108,customerWidth,31,16,'#fff0f2','#f7dbe1');
   canvasText(ctx,customer,46,129,14,700,'#cf0725');
   canvasText(ctx,state.includeFlash ? campaign.bannerLabel : 'ƯU ĐÃI THƯỜNG',32,207,state.includeFlash ? 62 : 44,800,'#e40024',width*.54-48);
   if (state.includeFlash) {
-    ctx.font='800 62px Arial, sans-serif';
+    ctx.font='800 62px Manrope, Arial';
     const boltX=32+ctx.measureText(campaign.bannerLabel).width+12;
     drawCanvasIcon(ctx,'bolt',boltX,153,38,'#e40024');
   }
   canvasText(ctx,campaign.headline[0],32,261,44,800,'#111b35',width*.53-42);
-  const headlineMaxTier = TIERS[state.customer].at(-1);
-  const headlineMaxRate = headlineMaxTier.regular + (state.includeFlash ? headlineMaxTier.flash : 0);
-  canvasText(ctx,`Nhận thêm tới ${headlineMaxRate}% ưu đãi`,32,314,34,800,'#111b35',width*.53-42);
+  canvasText(ctx,campaign.headline[1],32,314,state.customer === 'personal' ? 34 : 44,800,'#111b35',width*.53-42);
   if (state.includeFlash) {
     drawRoundRect(ctx,32,337,216,34,8,'#fff0f3','#f4bac6');
     canvasText(ctx,campaign.period,140,360,16,700,'#d60a30',200,'center');
@@ -563,7 +561,7 @@ async function downloadPromotionPng() {
   const button=els.downloadPng;
   button.disabled=true; button.setAttribute('aria-busy','true');
   try {
-    await Promise.allSettled([document.fonts?.ready, campaignImage.decode()]);
+    await Promise.all([document.fonts?.ready, campaignImage.decode()]);
     const canvas = createPromotionCanvas();
     const blob = await new Promise((resolve) => canvas.toBlob(resolve,'image/png'));
     if(!blob) throw new Error('PNG unavailable');
