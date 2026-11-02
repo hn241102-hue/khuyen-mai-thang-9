@@ -4,17 +4,16 @@ export const MAX_ROWS = 10;
 export const CAMPAIGN = Object.freeze({
   name: "Nạp tiền hôm nay – Nhận thêm tới 35% ưu đãi",
   headline: ["Nạp tiền hôm nay", "Nhận thêm tới 35% ưu đãi"],
-  start: "19/10/2026",
-  end: "23/10/2026",
-  short: "19–23/10",
-  period: "19/10 – 23/10/2026",
-  month: "10",
+  start: "02/11/2026",
+  end: "08/11/2026",
+  short: "02–08/11",
+  period: "02/11 – 08/11/2026",
+  month: "11",
   year: "2026",
   bonusLabel: "Ontop",
   bannerLabel: "ƯU ĐÃI",
 });
 
-// Personal and business rates supplied for 19–23 October 2026.
 export const CAMPAIGNS = Object.freeze({
   personal: CAMPAIGN,
   business: Object.freeze({
@@ -38,13 +37,13 @@ export const CUSTOMER_LABELS = Object.freeze({
 
 export const TIERS = Object.freeze({
   personal: [
-    { label: "500.000 – < 2 triệu", min: 500_000, max: 2_000_000, regular: 0, flash: 8 },
+    { label: "500.000 – < 1 triệu", min: 500_000, max: 1_000_000, regular: 0, flash: 10 },
+    { label: "1 – < 2 triệu", min: 1_000_000, max: 2_000_000, regular: 0, flash: 15 },
     { label: "2 – < 5 triệu", min: 2_000_000, max: 5_000_000, regular: 2, flash: 18 },
     { label: "5 – < 10 triệu", min: 5_000_000, max: 10_000_000, regular: 4, flash: 21 },
-    { label: "10 – < 20 triệu", min: 10_000_000, max: 20_000_000, regular: 6, flash: 22 },
-    { label: "20 – < 50 triệu", min: 20_000_000, max: 50_000_000, regular: 8, flash: 22 },
-    { label: "50 – < 100 triệu", min: 50_000_000, max: 100_000_000, regular: 10, flash: 22 },
-    { label: "≥ 100 triệu", min: 100_000_000, max: null, regular: 10, flash: 25 },
+    { label: "10 – < 20 triệu", min: 10_000_000, max: 20_000_000, regular: 6, flash: 24 },
+    { label: "20 – < 50 triệu", min: 20_000_000, max: 50_000_000, regular: 8, flash: 24 },
+    { label: "≥ 50 triệu", min: 50_000_000, max: null, regular: 10, flash: 25 },
   ],
   business: [
     { label: "5 – < 10 triệu", min: 5_000_000, max: 10_000_000, regular: 0, flash: 25 },
