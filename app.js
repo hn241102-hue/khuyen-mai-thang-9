@@ -10,7 +10,7 @@ import {
   formatInputMoney,
   formatMoney,
   parseMoney,
-} from "./pricing.js?v=20261016";
+} from "./pricing.js?v=20261109";
 
 function createId() {
   return globalThis.crypto?.randomUUID?.() ?? `row-${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -102,7 +102,7 @@ function renderCustomerState() {
   document.querySelector('#boardHeadlineBenefit').textContent = campaign.headline[1];
   document.querySelector('#boardHeadlineBenefit').style.fontSize = state.customer === 'personal' ? '34px' : '';
   document.querySelector('#boardDateText').textContent = campaign.period;
-  document.querySelector('#boardBonusPeriod').textContent = `${campaign.short} · HSD 90 ngày`;
+  document.querySelector('#boardBonusPeriod').textContent = 'HSD 30–60 ngày';
   document.querySelector('.column-resizer[data-column="2"]').setAttribute('aria-label', `Độ rộng cột ${campaign.bonusLabel}`);
   document.querySelector('#footerCampaign').textContent = `Công cụ khuyến mãi · Tháng ${campaign.month}/${campaign.year}`;
   document.querySelector("#boardCampaignTitle").innerHTML = state.includeFlash ? `${escapeHtml(campaign.bannerLabel)}<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg>` : 'ƯU ĐÃI THƯỜNG';
@@ -130,7 +130,7 @@ function createLookupRow(row, index) {
         </div>
       </td>
       <td><span class="rate-badge">${calculation.regularRate}%</span></td>
-      <td><span class="rate-badge flash">${calculation.flashRate ? `+${calculation.flashRate}%` : "0%"}</span></td>
+      <td><span class="rate-badge flash">${calculation.flashRate ? `+${calculation.flashRate}%` : "0%"}</span>${calculation.flashDays ? `<small class="bonus-validity">HSD ${calculation.flashDays} ngày</small>` : ""}</td>
       <td><span class="rate-badge total">${calculation.totalRate}%</span></td>
       <td><span class="promo-money">+${formatMoney(calculation.totalPromo)}<small>trên giá chưa VAT</small></span></td>
     </tr>
@@ -154,7 +154,7 @@ function createOfferRow(row, index) {
         </div>
       </td>
       <td class="regular-value"><span class="board-rate regular">${calculation.regularRate}%</span><span class="board-money">${formatMoney(calculation.regularMoney)}</span></td>
-      <td class="flash-value"><span class="board-rate flash">+${calculation.flashRate}%</span><span class="board-money">${formatMoney(calculation.flashMoney)}</span></td>
+      <td class="flash-value"><span class="board-rate flash">+${calculation.flashRate}%</span><span class="board-money">${formatMoney(calculation.flashMoney)}</span>${calculation.flashDays ? `<small class="bonus-validity">HSD ${calculation.flashDays} ngày</small>` : ""}</td>
       <td class="total-rate-value"><span class="board-rate total">${calculation.totalRate}%</span></td>
       <td class="total-value">${formatMoney(calculation.totalPromo)}</td>
     </tr>
@@ -183,7 +183,7 @@ function renderPolicyTables() {
             <tr>
               <td>${escapeHtml(tier.label)}</td>
               <td>${tier.regular}%</td>
-              <td>${flash}%</td>
+              <td>${flash}%${flash ? `<small class="bonus-validity">HSD ${tier.flashDays} ngày</small>` : ""}</td>
               <td>${tier.regular + flash}%</td>
             </tr>`;
         })
@@ -194,7 +194,7 @@ function renderPolicyTables() {
           <h4>${CUSTOMER_LABELS[customer]} · ${campaign.short}/${campaign.year}</h4>
           <div class="table-scroll">
             <table class="policy-table">
-              <thead><tr><th>Mức nạp (gồm VAT)</th><th>Thường</th><th>${campaign.bonusLabel}</th><th>Tổng</th></tr></thead>
+              <thead><tr><th>Mức nạp (gồm VAT)</th><th>Thường<small class="bonus-validity">HSD 180 ngày</small></th><th>${campaign.bonusLabel}</th><th>Tổng</th></tr></thead>
               <tbody>${rows}</tbody>
             </table>
           </div>
@@ -498,7 +498,7 @@ function createPromotionCanvas() {
   }
   const maxTier = TIERS[state.customer].at(-1);
   const maxRate = maxTier.regular + (state.includeFlash ? maxTier.flash : 0);
-  const offerX = width*.7-196, offerY=222;
+  const offerX = width*.76-196, offerY=222;
   ctx.save(); ctx.translate(offerX+98,offerY+68); ctx.rotate(-5*Math.PI/180);
   drawRoundRect(ctx,-98,-68,196,136,15,'#fffffff5','#f4cbd3');
   canvasText(ctx,'TỔNG ƯU ĐÃI ĐẾN',0,-39,13,800,'#1d2842',174,'center');
@@ -510,7 +510,7 @@ function createPromotionCanvas() {
   const tableGradient = ctx.createLinearGradient(tableX,tableY,width,tableY+80);
   tableGradient.addColorStop(0,'#ed1535');tableGradient.addColorStop(1,'#a9001c');
   ctx.fillStyle=tableGradient; ctx.fillRect(tableX,tableY,tableWidth,headerHeight);
-  const headers = [['Giá trị HĐ','(gồm VAT)'],['Ưu đãi thường','HSD 180 ngày'],[campaign.bonusLabel,`${campaign.short} · HSD 90 ngày`],['Tổng %','khuyến mãi'],['Tổng tiền KM','Trên giá chưa VAT']];
+  const headers = [['Giá trị HĐ','(gồm VAT)'],['Ưu đãi thường','HSD 180 ngày'],[campaign.bonusLabel,'HSD 30–60 ngày'],['Tổng %','khuyến mãi'],['Tổng tiền KM','Trên giá chưa VAT']];
   let x = tableX;
   headers.forEach(([title,subtitle],i) => {
     const cw=tableWidth*columns[i], cx=x+cw/2;
@@ -535,6 +535,7 @@ function createPromotionCanvas() {
         const regular=i===1;
         canvasPill(ctx,`${regular?'':'+'}${regular?calc.regularRate:calc.flashRate}%`,cx,mid-33,70,34,regular?'#eef0f6':'#ffe9ee',regular?'#263352':'#df0629',19);
         canvasText(ctx,formatMoney(regular?calc.regularMoney:calc.flashMoney),cx,mid+27,14,600,regular?'#263352':'#c9082d',cw-20,'center');
+        if(!regular && calc.flashDays) canvasText(ctx,`HSD ${calc.flashDays} ngày`,cx,mid+45,11,500,'#67738a',cw-20,'center');
       }else if(i===3){canvasPill(ctx,`${calc.totalRate}%`,cx,mid-22,82,44,'#d8062b','#fff',23);}
       else {canvasText(ctx,formatMoney(calc.totalPromo),cx,mid+7,20,800,'#067749',cw-20,'center');}
       vx+=cw;
@@ -543,7 +544,7 @@ function createPromotionCanvas() {
   ctx.restore();
   ctx.strokeStyle='#f1cad2'; ctx.lineWidth=1; ctx.beginPath();ctx.roundRect(tableX,tableY,tableWidth,headerHeight+state.rows.length*rowHeight,15);ctx.stroke();
   const footerY=tableBottom+25;
-  [[32,'✓','Ưu đãi thường','Sử dụng trong 180 ngày'],[290,'ϟ',campaign.bonusLabel,'Sử dụng trong 90 ngày']].forEach(([x,icon,title,detail])=>{
+  [[32,'✓','Ưu đãi thường','Sử dụng trong 180 ngày'],[290,'ϟ',campaign.bonusLabel,'30–60 ngày tùy mức nạp']].forEach(([x,icon,title,detail])=>{
     drawRoundRect(ctx,x,footerY,42,42,21,'#ffe8ee'); drawCanvasIcon(ctx,icon==='✓'?'check':'bolt',x+10,footerY+10,22,'#dd0830');
     canvasText(ctx,title,x+54,footerY+14,12,500,'#5e687e',210);
     canvasText(ctx,detail,x+54,footerY+35,13,700,'#26324d',210);

@@ -1,0 +1,32 @@
+CẬP NHẬT ƯU ĐÃI 09–13/11/2026
+
+1. Giải nén file ZIP này.
+2. Mở https://github.com/hn241102-hue/khuyen-mai-thang-9 trên nhánh main.
+3. Chọn Add file > Upload files.
+4. Kéo đúng 4 file index.html, app.js, pricing.js và styles.css vào trang upload.
+   Đặt trực tiếp ở thư mục gốc, không kéo cả thư mục và không đổi tên file.
+5. Chọn Commit changes. Sau đó xem trạng thái triển khai trong Vercel.
+6. Khi triển khai thành công, tải lại trang bằng Ctrl+Shift+R.
+
+Đã cập nhật 7 mức cá nhân và 6 mức doanh nghiệp, ngày áp dụng và HSD Ontop 30/60 ngày trong bảng tra cứu, bảng chính sách và ảnh PNG xuất ra. Ưu đãi thường HSD 180 ngày.
+
+Cá nhân (mức nạp / thường + Ontop = tổng / HSD Ontop):
+500 nghìn–<2 triệu: 0% + 8% = 8% / 30 ngày
+2–<5 triệu: 2% + 18% = 20% / 30 ngày
+5–<10 triệu: 4% + 21% = 25% / 60 ngày
+10–<20 triệu: 6% + 22% = 28% / 60 ngày
+20–<50 triệu: 8% + 22% = 30% / 60 ngày
+50–<100 triệu: 10% + 22% = 32% / 60 ngày
+Từ 100 triệu: 10% + 25% = 35% / 60 ngày
+
+Doanh nghiệp:
+5–<10 triệu: 0% + 20% = 20% / 30 ngày
+10–<20 triệu: 5% + 23% = 28% / 60 ngày
+20–<50 triệu: 7% + 23% = 30% / 60 ngày
+50–<100 triệu: 10% + 24% = 34% / 60 ngày
+100–<300 triệu: 12% + 26% = 38% / 60 ngày
+Từ 300 triệu: 14% + 26% = 40% / 60 ngày
+
+Giữ công thức tính ưu đãi trên giá chưa VAT: mức nạp / 1,08 × tổng tỷ lệ.
+Bộ này cập nhật website hiện có; các ảnh, font và cấu hình Vercel đã có trong repo được giữ nguyên.
+Đã kiểm tra các mốc nạp, công thức, chuyển loại khách hàng, bật/tắt Ontop và tạo PNG bằng mô phỏng DOM/canvas. Chưa kiểm tra giao diện bằng trình duyệt thực tế. Chưa đẩy mã lên GitHub/Vercel.
